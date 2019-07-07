@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/member")
@@ -20,7 +22,7 @@ public class MemberController {
     MemberService memberService;
 
     @PostMapping("/register")
-    public ResponseDTO registerNewMember(@Validated @RequestBody MemberShipFormCO memberShipFormCO){
+    public ResponseDTO registerNewMember(@Valid @RequestBody MemberShipFormCO memberShipFormCO){
       return memberService.createMember(memberShipFormCO);
     }
 

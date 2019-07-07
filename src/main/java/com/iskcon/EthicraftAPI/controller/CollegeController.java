@@ -1,6 +1,7 @@
 package com.iskcon.EthicraftAPI.controller;
 
 import com.iskcon.EthicraftAPI.constants.RoleConstant;
+import com.iskcon.EthicraftAPI.dto.CollegeDTO;
 import com.iskcon.EthicraftAPI.dto.ResponseDTO;
 import com.iskcon.EthicraftAPI.co.CollegeCO;
 import com.iskcon.EthicraftAPI.service.CollegeService;
@@ -12,6 +13,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -29,6 +32,11 @@ public class CollegeController {
     @PostMapping("/register")
     public ResponseDTO registerCollege( @RequestBody CollegeCO collegeCO){
         return collegeService.register(collegeCO);
+    }
+
+    @GetMapping("/collegeDropDown")
+    public Map<Long,String> findAllActiveCollegeDropDown(){
+        return collegeService.findAllActiveCollegeDropDown();
     }
 
 }

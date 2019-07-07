@@ -1,10 +1,6 @@
 package com.iskcon.EthicraftAPI.co;
 
 
-import com.iskcon.EthicraftAPI.domain.Address;
-import com.iskcon.EthicraftAPI.domain.College;
-
-import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
 public class MemberShipFormCO {
@@ -20,11 +16,11 @@ public class MemberShipFormCO {
     @NotNull
     private Long mobileNumber;
     @NotNull
-    private String whatsappNumber ;
+    private Long whatsappNumber ;
     @NotNull
     private String email;
     @NotNull
-    private College college;
+    private Long collegeId;
     @NotNull
     private String courseName;
     @NotNull
@@ -37,6 +33,7 @@ public class MemberShipFormCO {
     private String hobbies;
     private String skills;
     private String inspirationSource;
+    private Boolean isAddressSame;
 
     public String getFirstName() {
         return firstName;
@@ -78,11 +75,11 @@ public class MemberShipFormCO {
         this.mobileNumber = mobileNumber;
     }
 
-    public String getWhatsappNumber() {
+    public Long getWhatsappNumber() {
         return whatsappNumber;
     }
 
-    public void setWhatsappNumber(String whatsappNumber) {
+    public void setWhatsappNumber(Long whatsappNumber) {
         this.whatsappNumber = whatsappNumber;
     }
 
@@ -94,12 +91,12 @@ public class MemberShipFormCO {
         this.email = email;
     }
 
-    public College getCollege() {
-        return college;
+    public Long getCollegeId() {
+        return collegeId;
     }
 
-    public void setCollege(College college) {
-        this.college = college;
+    public void setCollegeId(Long collegeId) {
+        this.collegeId = collegeId;
     }
 
     public String getCourseName() {
@@ -164,5 +161,13 @@ public class MemberShipFormCO {
 
     public void setInspirationSource(String inspirationSource) {
         this.inspirationSource = inspirationSource;
+    }
+
+    public Boolean getAddressSame() {
+        return isAddressSame;
+    }
+
+    public void setAddressSame(Boolean addressSame) {
+        isAddressSame = addressSame;
     }
 }

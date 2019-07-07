@@ -1,34 +1,28 @@
-package com.iskcon.EthicraftAPI.domain;
+package com.iskcon.EthicraftAPI.dto;
 
+public class CollegeDTO {
 
-import javax.persistence.*;
-import java.util.List;
-
-@Entity
-public class College extends BaseModel {
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,unique = true)
     private String collegeName;
-    @Column(nullable = false)
     private String collegeAbbreviation;
-    @Column(nullable = false)
     private String universityName;
-    @Column(nullable = false,unique = true)
     private String address;
-    @Column(nullable = false)
     private String city;
-    @Column(nullable = false)
     private String state;
     private String comments;
     private String faculty;
     private String referencePersonName;
     private Long referencePersonContact;
     private Boolean isActive;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getCollegeName() {
         return collegeName;
@@ -108,14 +102,6 @@ public class College extends BaseModel {
 
     public void setReferencePersonContact(Long referencePersonContact) {
         this.referencePersonContact = referencePersonContact;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Boolean getActive() {

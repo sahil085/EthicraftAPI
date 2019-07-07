@@ -21,7 +21,7 @@ public class Member {
     @Column(nullable = false,unique = true)
     private Long mobileNumber;
     @Column(nullable = false,unique = true)
-    private String whatsappNumber ;
+    private Long whatsappNumber ;
     @Column(nullable = false,unique = true)
     private String email;
     @OneToOne
@@ -92,11 +92,11 @@ public class Member {
         this.mobileNumber = mobileNumber;
     }
 
-    public String getWhatsappNumber() {
+    public Long getWhatsappNumber() {
         return whatsappNumber;
     }
 
-    public void setWhatsappNumber(String whatsappNumber) {
+    public void setWhatsappNumber(Long whatsappNumber) {
         this.whatsappNumber = whatsappNumber;
     }
 

@@ -86,9 +86,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void populateRole(){
       List<String> roles = RoleConstant.ROLES;
       roles.forEach(role -> {
-          Role role1 = new Role();
-          role1.setRole(role);
-          roleRepository.saveAndFlush(role1);
+          Role dbRole = roleRepository.findByRole(RoleConstant.ROLE_ADMIN);
+          if(dbRole == null) {
+              Role role1 = new Role();
+              role1.setRole(role);
+              roleRepository.saveAndFlush(role1);
+          }
+
       });
       createAdmin();
     }

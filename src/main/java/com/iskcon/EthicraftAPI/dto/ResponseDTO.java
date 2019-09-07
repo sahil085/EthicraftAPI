@@ -1,5 +1,7 @@
 package com.iskcon.EthicraftAPI.dto;
 
+import org.springframework.http.HttpStatus;
+
 public class ResponseDTO {
 
     String successMessage;
@@ -38,6 +40,21 @@ public class ResponseDTO {
         this.httpCode = httpCode;
         this.responseType = type;
         return this;
+    }
+
+    public static ResponseDTO sendSuccessmessage(String successMessage){
+        ResponseDTO responseDTO = new ResponseDTO();
+        responseDTO.setSuccessMessage(successMessage);
+        responseDTO.setHttpCode(HttpStatus.OK.value());
+        responseDTO.responseType = "success";
+        return responseDTO;
+    }
+    public static ResponseDTO sendErrorsmessage(String errorMessage){
+        ResponseDTO responseDTO = new ResponseDTO();
+        responseDTO.setErrorMessage(errorMessage);
+        responseDTO.setHttpCode(HttpStatus.OK.value());
+        responseDTO.responseType = "error";
+        return responseDTO;
     }
 
     public String getSuccessMessage() {

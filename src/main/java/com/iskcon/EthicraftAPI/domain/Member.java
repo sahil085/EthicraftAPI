@@ -1,7 +1,16 @@
 package com.iskcon.EthicraftAPI.domain;
 
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name="Member")
@@ -11,7 +20,7 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false)
     private String firstName;
     private String middleName;
     @Column(nullable = false)
@@ -31,8 +40,10 @@ public class Member {
     @Column(nullable = false)
     private String batch;
     @OneToOne
+    @Cascade(CascadeType.ALL)
     private Address permanentAddress;
     @OneToOne
+    @Cascade(CascadeType.ALL)
     private Address presentAddress;
     private String achievements;
     private String hobbies;

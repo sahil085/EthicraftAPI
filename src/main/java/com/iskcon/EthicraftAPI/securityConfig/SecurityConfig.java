@@ -1,10 +1,11 @@
 package com.iskcon.EthicraftAPI.securityConfig;
 
-import com.iskcon.EthicraftAPI.constants.RoleConstant;
-import com.iskcon.EthicraftAPI.domain.Role;
-import com.iskcon.EthicraftAPI.domain.User;
-import com.iskcon.EthicraftAPI.repository.UserRepository;
-import com.iskcon.EthicraftAPI.securityservices.CustomUserDetailsService;
+import javax.annotation.PostConstruct;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,9 +23,12 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import javax.annotation.PostConstruct;
-import java.util.HashSet;
-import java.util.Set;
+import com.iskcon.EthicraftAPI.constants.RoleConstant;
+import com.iskcon.EthicraftAPI.domain.Role;
+import com.iskcon.EthicraftAPI.domain.User;
+import com.iskcon.EthicraftAPI.repository.RoleRepository;
+import com.iskcon.EthicraftAPI.repository.UserRepository;
+import com.iskcon.EthicraftAPI.securityservices.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -35,6 +39,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     UserRepository userInfoRepository;
+
+    @Autowired
+    RoleRepository roleRepository;
 
     @Bean
     public ModelMapper modelMapper() {
@@ -76,6 +83,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @PostConstruct
+    public void populateRole(){
+      List<String> roles = RoleConstant.ROLES;
+      roles.forEach(role -> {
+          Role dbRole = roleRepository.findByRole(RoleConstant.ROLE_ADMIN);
+          if(dbRole == null) {
+              Role role1 = new Role();
+              role1.setRole(role);
+              roleRepository.saveAndFlush(role1);
+          }
+
+      });
+      createAdmin();
+    }
+
     public void createAdmin(){
         User userInfo1 = userInfoRepository.findByEmail("sahil.verma@tothenew.com");
         if(userInfo1==null){
@@ -84,8 +105,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             userInfo.setPassword(new BCryptPasswordEncoder().encode("igdefault"));
             userInfo.setUsername("sahil verma");
             Set<Role> roles = new HashSet<>();
-            Role role = new Role();
-            role.setRole(RoleConstant.ROLE_ADMIN);
+            Role role = roleRepository.findByRole(RoleConstant.ROLE_ADMIN);
             roles.add(role);
             userInfo.setRoles(roles);
             userInfoRepository.saveAndFlush(userInfo);

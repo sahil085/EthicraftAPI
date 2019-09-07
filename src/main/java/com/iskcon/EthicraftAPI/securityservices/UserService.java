@@ -1,10 +1,13 @@
 package com.iskcon.EthicraftAPI.securityservices;
 
 
-import com.iskcon.EthicraftAPI.domain.User;
-import com.iskcon.EthicraftAPI.repository.UserRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.iskcon.EthicraftAPI.domain.User;
+import com.iskcon.EthicraftAPI.repository.UserRepository;
 
 
 /**
@@ -31,5 +34,9 @@ public class UserService {
 
 	public User find(Long id) {
 		return userRepository.getOne(id);
+	}
+
+	public List<String> findAllEmails() {
+		return userRepository.findAllEmail();
 	}
 }

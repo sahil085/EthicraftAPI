@@ -1,10 +1,18 @@
 package com.iskcon.EthicraftAPI.constants;
 
-import org.springframework.stereotype.Component;
+import java.util.Arrays;
+import java.util.List;
 
-@Component
-public class RoleConstant {
+public interface RoleConstant {
 
-     public static final String ROLE_ADMIN="ADMIN";
-     public static final String ROLE_USER="USER";
+     String ROLE_SUPER_ADMIN="SUPER ADMIN";
+     String ROLE_ADMIN="ADMIN";
+     String ROLE_USER="USER";
+     String ROLE_EEO = "EEO";
+     String ROLE_MEMBER ="MEMBER";
+     String ROLE_CA="CAMPUS AMBASSADOR";
+
+     List<String> ROLES = Arrays.asList(ROLE_SUPER_ADMIN,ROLE_ADMIN,ROLE_USER,ROLE_EEO,ROLE_MEMBER,ROLE_CA);
+
+
 }

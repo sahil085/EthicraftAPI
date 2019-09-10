@@ -15,7 +15,6 @@ public class MemberShipFormCO {
     private String gender;
     @NotNull
     private Long mobileNumber;
-    @NotNull
     private Long whatsappNumber ;
     @NotNull
     private String email;
@@ -34,6 +33,8 @@ public class MemberShipFormCO {
     private String skills;
     private String inspirationSource;
     private Boolean isAddressSame;
+    @NotNull
+    private String password;
 
     public String getFirstName() {
         return firstName;
@@ -169,5 +170,14 @@ public class MemberShipFormCO {
 
     public void setAddressSame(Boolean addressSame) {
         isAddressSame = addressSame;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public MemberShipFormCO setPassword(String password) {
+        this.password = password;
+        return this;
     }
 }

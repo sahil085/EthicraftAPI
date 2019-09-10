@@ -4,11 +4,11 @@ import org.springframework.http.HttpStatus;
 
 public class ResponseDTO {
 
-    String successMessage;
-    String errorMessage;
-    String responseType;
+    String  successMessage;
+    String  errorMessage;
+    String  type;
     Integer httpCode;
-    Object data;
+    Object  data;
 
     public ResponseDTO() {
     }
@@ -19,18 +19,18 @@ public class ResponseDTO {
         this.httpCode = httpCode;
     }
 
-    public ResponseDTO(String successMessage, String errorMessage, Integer httpCode, Object data,String responseType) {
+    public ResponseDTO(String successMessage, String errorMessage, Integer httpCode, Object data,String type) {
         this.successMessage = successMessage;
         this.errorMessage = errorMessage;
         this.httpCode = httpCode;
         this.data = data;
-        this.responseType = responseType;
+        this.type = type;
     }
 
     public ResponseDTO createSuccessMessage(String successMessage,Object data,Integer httpCode,String type){
         this.data = data;
         this.successMessage = successMessage;
-        this.responseType =type;
+        this.type =type;
         this.httpCode = httpCode;
         return this;
     }
@@ -38,7 +38,7 @@ public class ResponseDTO {
         this.data = data;
         this.errorMessage = errorMessage;
         this.httpCode = httpCode;
-        this.responseType = type;
+        this.type = type;
         return this;
     }
 
@@ -46,14 +46,14 @@ public class ResponseDTO {
         ResponseDTO responseDTO = new ResponseDTO();
         responseDTO.setSuccessMessage(successMessage);
         responseDTO.setHttpCode(HttpStatus.OK.value());
-        responseDTO.responseType = "success";
+        responseDTO.type = "success";
         return responseDTO;
     }
     public static ResponseDTO sendErrorsmessage(String errorMessage){
         ResponseDTO responseDTO = new ResponseDTO();
         responseDTO.setErrorMessage(errorMessage);
         responseDTO.setHttpCode(HttpStatus.OK.value());
-        responseDTO.responseType = "error";
+        responseDTO.type = "error";
         return responseDTO;
     }
 
@@ -87,5 +87,14 @@ public class ResponseDTO {
 
     public void setData(Object data) {
         this.data = data;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public ResponseDTO setType(String type) {
+        this.type = type;
+        return this;
     }
 }

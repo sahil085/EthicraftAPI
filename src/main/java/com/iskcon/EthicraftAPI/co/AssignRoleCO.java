@@ -6,6 +6,8 @@ import java.util.List;
 
 public class AssignRoleCO {
 
+    private Long id;
+
     @NotNull
     private String username;
 
@@ -13,6 +15,15 @@ public class AssignRoleCO {
     private String role;
 
     private List<Long> colleges;
+
+    public Long getId() {
+        return id;
+    }
+
+    public AssignRoleCO setId(Long id) {
+        this.id = id;
+        return this;
+    }
 
     public String getUsername() {
         return username;

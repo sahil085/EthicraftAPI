@@ -26,8 +26,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.iskcon.EthicraftAPI.constants.RoleConstant;
 import com.iskcon.EthicraftAPI.domain.Role;
 import com.iskcon.EthicraftAPI.domain.User;
+import com.iskcon.EthicraftAPI.domain.UserRoleCollegeMapping;
 import com.iskcon.EthicraftAPI.repository.RoleRepository;
 import com.iskcon.EthicraftAPI.repository.UserRepository;
+import com.iskcon.EthicraftAPI.repository.UserRoleCollegeRepo;
 import com.iskcon.EthicraftAPI.securityservices.CustomUserDetailsService;
 
 @Configuration
@@ -42,6 +44,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     RoleRepository roleRepository;
+
+
+    @Autowired
+    UserRoleCollegeRepo userRoleCollegeRepo;
 
     @Bean
     public ModelMapper modelMapper() {
@@ -86,7 +92,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void populateRole(){
       List<String> roles = RoleConstant.ROLES;
       roles.forEach(role -> {
-          Role dbRole = roleRepository.findByRole(RoleConstant.ROLE_ADMIN);
+          Role dbRole = roleRepository.findByRole(role);
           if(dbRole == null) {
               Role role1 = new Role();
               role1.setRole(role);
@@ -109,7 +115,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             roles.add(role);
             userInfo.setRoles(roles);
             userInfoRepository.saveAndFlush(userInfo);
-
+            UserRoleCollegeMapping userRoleCollegeMapping = new UserRoleCollegeMapping();
+            userRoleCollegeMapping.setRole(role);
+            userRoleCollegeMapping.setUser(userInfo);
+            userRoleCollegeRepo.saveAndFlush(userRoleCollegeMapping);
             System.out.println(" ****  Admin Created  ****");
         }
 

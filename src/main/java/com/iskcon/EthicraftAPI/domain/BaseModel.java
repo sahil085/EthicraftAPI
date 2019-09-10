@@ -1,28 +1,40 @@
 package com.iskcon.EthicraftAPI.domain;
 
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import java.util.Date;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import javax.persistence.*;
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @MappedSuperclass
 public class BaseModel {
 
 
     @Column(name = "CREATED_BY")
+    @JsonIgnore
     private String createdBy;
 
     @Column(name = "MODIFIED_BY")
+    @JsonIgnore
     private String modifiedBy;
 
     @Column(name = "DATE_CREATED")
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date createdDate;
 
     @Column(name = "DATE_MODIFIED")
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date modifiedDate;
 
     public String getCreatedBy() {

@@ -1,20 +1,23 @@
 package com.iskcon.EthicraftAPI.controller;
 
-import com.iskcon.EthicraftAPI.constants.RoleConstant;
-import com.iskcon.EthicraftAPI.dto.CollegeDTO;
-import com.iskcon.EthicraftAPI.dto.ResponseDTO;
-import com.iskcon.EthicraftAPI.co.CollegeCO;
-import com.iskcon.EthicraftAPI.service.CollegeService;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-import java.util.List;
-import java.util.Map;
+import com.iskcon.EthicraftAPI.co.CollegeCO;
+import com.iskcon.EthicraftAPI.constants.RoleConstant;
+import com.iskcon.EthicraftAPI.dto.CollegeDTO;
+import com.iskcon.EthicraftAPI.dto.ResponseDTO;
+import com.iskcon.EthicraftAPI.service.CollegeService;
 
 @RestController
 @CrossOrigin
@@ -35,8 +38,8 @@ public class CollegeController {
     }
 
     @GetMapping("/collegeDropDown")
-    public Map<Long,String> findAllActiveCollegeDropDown(){
-        return collegeService.findAllActiveCollegeDropDown();
+    public List<CollegeDTO> findAllActiveCollegeDropDown(){
+        return collegeService.findAllActiveCollege();
     }
 
 }

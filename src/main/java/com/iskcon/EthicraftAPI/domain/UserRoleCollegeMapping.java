@@ -4,24 +4,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.iskcon.EthicraftAPI.dto.UserRoleCollegeMappingDTO;
 
 @Entity
-public class UserRoleCollegeMapping {
+public class UserRoleCollegeMapping implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private User user;
-
+    @ManyToOne
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Role role;
 
-    @OneToMany
-    private List<College> collegeIds = new ArrayList<>();
+    @ManyToMany
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private List<College> collegeList;
 
     public Long getId() {
         return id;
@@ -50,12 +60,31 @@ public class UserRoleCollegeMapping {
         return this;
     }
 
-    public List<College> getCollegeIds() {
-        return collegeIds;
+    public List<College> getCollegeList() {
+        return collegeList;
     }
 
-    public UserRoleCollegeMapping setCollegeIds(List<College> collegeIds) {
-        this.collegeIds = collegeIds;
+    public UserRoleCollegeMapping setCollegeList(List<College> collegeList) {
+        this.collegeList = collegeList;
         return this;
+    }
+
+    public static List<UserRoleCollegeMappingDTO> mapToDTO(List<UserRoleCollegeMapping> userRoleCollegeMappingList){
+        List<UserRoleCollegeMappingDTO> userRoleCollegeMappingDTOList = new ArrayList<>();
+        userRoleCollegeMappingList.forEach(userRoleCollegeMapping -> {
+            UserRoleCollegeMappingDTO userRoleCollegeMappingDTO = new UserRoleCollegeMappingDTO();
+            if(userRoleCollegeMapping.getCollegeList() != null){
+                String collegeNames =userRoleCollegeMapping.getCollegeList().stream().map(College::getCollegeName).collect(Collectors.joining(","));
+                userRoleCollegeMappingDTO.setCollegeName(collegeNames);
+            }
+
+            userRoleCollegeMappingDTO.setId(userRoleCollegeMapping.getId());
+            userRoleCollegeMappingDTO.setRole(userRoleCollegeMapping.getRole().getRole());
+            userRoleCollegeMappingDTO.setUserEmail(userRoleCollegeMapping.getUser().getEmail());
+            userRoleCollegeMappingDTO.setUserName(userRoleCollegeMapping.getUser().getUsername());
+            userRoleCollegeMappingDTOList.add(userRoleCollegeMappingDTO);
+
+        });
+        return userRoleCollegeMappingDTOList;
     }
 }

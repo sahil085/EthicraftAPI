@@ -1,10 +1,15 @@
 package com.iskcon.EthicraftAPI.domain;
 
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
+@Embeddable
 public class College extends BaseModel {
 
 
@@ -28,7 +33,7 @@ public class College extends BaseModel {
     private String faculty;
     private String referencePersonName;
     private Long referencePersonContact;
-    private Boolean isActive;
+    private Boolean isActive = true;
 
     public String getCollegeName() {
         return collegeName;

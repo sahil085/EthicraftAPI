@@ -17,7 +17,14 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value = "select email from User ", nativeQuery = true)
     List<String> findAllEmail();
 
+    @Query(value = "select User_id as userId, roles_id as roleId from User_Role where User_id=:userId", nativeQuery = true)
+    List<UserRole> findUserRoleByUserId(Long userId);
 
     @Override
     User getOne(Long Long);
+
+     interface UserRole {
+        Long getUserId();
+        Long getRoleId();
+    }
 }

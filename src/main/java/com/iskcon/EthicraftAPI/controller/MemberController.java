@@ -54,8 +54,5 @@ public class MemberController {
             return userService.findAllEmails();
     }
 
-    @PutMapping("/assignRole")
-    public ResponseDTO assignRole(@Validated  @RequestBody AssignRoleCO assignRoleCO) {
-        return memberService.assignRoleToUser(assignRoleCO);
-    }
+
 }

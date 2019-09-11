@@ -29,9 +29,9 @@ public class Member {
     private String gender;
     @Column(nullable = false,unique = true)
     private Long mobileNumber;
-    @Column(nullable = false,unique = true)
+    @Column(unique = true)
     private Long whatsappNumber ;
-    @Column(nullable = false,unique = true)
+    @Column(nullable = true,unique = true)
     private String email;
     @OneToOne
     private College college;
@@ -51,8 +51,10 @@ public class Member {
     private String inspirationSource;
     @Column(nullable = false)
     private String profilePic;
+    @Column(nullable = false)
+    private String password;
 
-    private Boolean isMemberApproved;
+    private Boolean isMemberApproved = false;
 
 
     public Long getId() {
@@ -205,5 +207,14 @@ public class Member {
 
     public void setPresentAddress(Address presentAddress) {
         this.presentAddress = presentAddress;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Member setPassword(String password) {
+        this.password = password;
+        return this;
     }
 }

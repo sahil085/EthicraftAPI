@@ -25,6 +25,9 @@ public class CollegeService {
     @Autowired
     private CollegeRepository collegeRepository;
 
+    @Autowired
+    private MailerService mailerService;
+
     public ResponseDTO register(CollegeCO collegeCO) {
         try {
             ModelMapper modelMapper = new ModelMapper();
@@ -62,6 +65,7 @@ public class CollegeService {
     }
 
     public List<CollegeDTO> findAllActiveCollege() {
+//        mailerService.prepareAndSend("vermasahil.269@gmail.com","Hare Krishna","member/welcome");
         ModelMapper modelMapper = new ModelMapper();
         List<College> collegeList = collegeRepository.findAllByIsActive(true);
         return modelMapper.map(collegeList, new TypeToken<List<CollegeDTO>>() {

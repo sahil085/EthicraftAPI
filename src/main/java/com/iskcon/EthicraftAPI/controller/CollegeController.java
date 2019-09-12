@@ -6,12 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.iskcon.EthicraftAPI.co.CollegeCO;
 import com.iskcon.EthicraftAPI.constants.RoleConstant;
@@ -42,4 +37,18 @@ public class CollegeController {
         return collegeService.findAllActiveCollege();
     }
 
+    @GetMapping("/{collegeId}")
+    public CollegeDTO findCollegeByID(@PathVariable("collegeId") Long collegeId) {
+        return collegeService.findCollegeById(collegeId);
+    }
+
+    @GetMapping("/")
+    public List<CollegeDTO> findAllColleges() {
+        return collegeService.findAllColleges();
+    }
+
+    @PutMapping("/{collegeId}")
+    public ResponseDTO updateCollegeInfo(@PathVariable("collegeId") Long collegeId, @RequestBody CollegeCO collegeCO) {
+        return collegeService.updateCollege(collegeId, collegeCO);
+    }
 }

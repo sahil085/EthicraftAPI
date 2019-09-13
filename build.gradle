@@ -28,6 +28,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 bootRun {
+	systemProperties = System.properties
 	jvmArgs = [
 			"-Xdebug", "-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5006"
 	]

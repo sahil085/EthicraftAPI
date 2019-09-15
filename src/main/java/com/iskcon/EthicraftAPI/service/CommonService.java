@@ -22,6 +22,9 @@ public class CommonService {
     @Autowired
     UserRoleCollegeRepo userRoleCollegeRepo;
 
+    @Autowired
+    SendGridMailService sendGridMailService;
+
     public void createUserRoleCollegeMapping(User user, Role role, List<Long> collegeIds) {
         UserRoleCollegeMapping userRoleCollegeMapping = new UserRoleCollegeMapping();
         if(collegeIds != null){

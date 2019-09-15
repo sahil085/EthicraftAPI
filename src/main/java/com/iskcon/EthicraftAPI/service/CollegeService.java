@@ -28,15 +28,19 @@ public class CollegeService {
     @Autowired
     private MailerService mailerService;
 
-    public ResponseDTO register(CollegeCO collegeCO) {
-        try {
-            ModelMapper modelMapper = new ModelMapper();
-            College college = modelMapper.map(collegeCO, College.class);
-            if (isValid(college)) {
-                collegeRepository.saveAndFlush(college);
-                return new ResponseDTO().createSuccessMessage("College registered successfully", null, HttpStatus.OK.value(), "success");
-            } else {
-                return new ResponseDTO().createErrorMessage("College Name must be unique", null, HttpStatus.CONFLICT.value(), "error");
+    @Autowired
+    private SendGridMailService sendGridMailService;
+
+    public ResponseDTO register(CollegeCO collegeCO){
+            try{
+                ModelMapper modelMapper = new ModelMapper();
+                College college = modelMapper.map(collegeCO, College.class);
+                if(isValid(college)){
+                    collegeRepository.saveAndFlush(college);
+                    return new ResponseDTO().createSuccessMessage("College registered successfully",null,HttpStatus.OK.value(),"success");
+                }else
+                {
+                    return new ResponseDTO().createErrorMessage("College Name must be unique",null,HttpStatus.CONFLICT.value(),"error");
 
             }
         } catch (Exception e) {
@@ -66,6 +70,7 @@ public class CollegeService {
 
     public List<CollegeDTO> findAllActiveCollege() {
 //        mailerService.prepareAndSend("vermasahil.269@gmail.com","Hare Krishna","member/welcome");
+        sendGridMailService.sendEmailUsingSendGrid();
         ModelMapper modelMapper = new ModelMapper();
         List<College> collegeList = collegeRepository.findAllByIsActive(true);
         return modelMapper.map(collegeList, new TypeToken<List<CollegeDTO>>() {

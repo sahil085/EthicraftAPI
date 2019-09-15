@@ -35,4 +35,8 @@ public class CommonService {
         userRoleCollegeMapping.setUser(user);
         userRoleCollegeRepo.saveAndFlush(userRoleCollegeMapping);
     }
+
+    public void notifyMember(String subject, Object data, String templateName, String to) {
+        sendGridMailService.sendEmailUsingSendGrid(subject, data, templateName, to);
+    }
 }

@@ -1,12 +1,16 @@
 package com.iskcon.EthicraftAPI.domain;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 @Embeddable
@@ -18,22 +22,22 @@ public class College extends BaseModel {
     private Long id;
 
     @Column(nullable = false,unique = true)
-    private String collegeName;
+    private String                 collegeName;
     @Column(nullable = false)
-    private String collegeAbbreviation;
+    private String                 collegeAbbreviation;
     @Column(nullable = false)
-    private String universityName;
+    private String                 universityName;
     @Column(nullable = false,unique = true)
-    private String address;
+    private String                 address;
     @Column(nullable = false)
-    private String city;
+    private String                 city;
     @Column(nullable = false)
-    private String state;
-    private String comments;
-    private String faculty;
-    private String referencePersonName;
-    private Long referencePersonContact;
-    private Boolean isActive = true;
+    private String                 state;
+    private String                 comments;
+    private String                 faculty;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<CollegeReference> referenceList;
+    private Boolean                isActive = true;
 
     public String getCollegeName() {
         return collegeName;
@@ -99,20 +103,13 @@ public class College extends BaseModel {
         this.faculty = faculty;
     }
 
-    public String getReferencePersonName() {
-        return referencePersonName;
+    public List<CollegeReference> getReferenceList() {
+        return referenceList;
     }
 
-    public void setReferencePersonName(String referencePersonName) {
-        this.referencePersonName = referencePersonName;
-    }
-
-    public Long getReferencePersonContact() {
-        return referencePersonContact;
-    }
-
-    public void setReferencePersonContact(Long referencePersonContact) {
-        this.referencePersonContact = referencePersonContact;
+    public College setReferenceList(List<CollegeReference> referenceList) {
+        this.referenceList = referenceList;
+        return this;
     }
 
     public Long getId() {

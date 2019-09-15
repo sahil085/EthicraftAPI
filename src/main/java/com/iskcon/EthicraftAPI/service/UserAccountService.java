@@ -1,6 +1,7 @@
 package com.iskcon.EthicraftAPI.service;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -44,6 +45,8 @@ public class UserAccountService {
     @Autowired
     private CollegeRepository collegeRepository;
 
+    @Autowired
+    private MailerService mailerService;
 
     public ResponseDTO assignRoleToUser(AssignRoleCO assignRoleCO) {
         try {
@@ -66,6 +69,15 @@ public class UserAccountService {
                 commonService.createUserRoleCollegeMapping(user,role,assignRoleCO.getColleges());
                 userRepository.saveAndFlush(user);
                 return ResponseDTO.sendSuccessmessage("Role successfully assigned to "+user.getUsername());
+            } else if (assignRoleCO.getRole().equals(RoleConstant.ROLE_MEMBER) && !member.getMemberApproved()) {
+                userRoles.add(role);
+                user.setRoles(userRoles);
+                Object data = new HashMap<>();
+                ((HashMap) data).put("username",member.getFirstName() + " " + member.getLastName());
+                ((HashMap) data).put("membershipId",member.getMembershipId());
+                mailerService.prepareAndSend(member.getEmail(),data,"member/welcome");
+                commonService.createUserRoleCollegeMapping(user,role,null);
+                userRepository.saveAndFlush(user);
             } else {
                 userRoles.add(role);
                 user.setRoles(userRoles);
@@ -78,6 +90,7 @@ public class UserAccountService {
             return ResponseDTO.sendErrorsmessage("Internal Server Error");
         }
     }
+
 
 
     public List<UserRoleCollegeMappingDTO> findAllUserRoleMapping() {
@@ -96,6 +109,13 @@ public class UserAccountService {
             if(userRoleCollegeMapping != null) {
                 User user = userRoleCollegeMapping.getUser();
                 Role role = userRoleCollegeMapping.getRole();
+                if(role.getRole().equals(RoleConstant.ROLE_MEMBER)){
+                    Member member = memberRepository.findByEmail(user.getEmail());
+                    if(member != null){
+                        member.setMemberApproved(false);
+                        memberRepository.save(member);
+                    }
+                }
                 user.getRoles().removeIf(role1 -> role1.getRole().equals(role.getRole()));
                 userRepository.saveAndFlush(user);
                 userRoleCollegeRepo.delete(userRoleCollegeMapping);

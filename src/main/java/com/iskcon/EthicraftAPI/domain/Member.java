@@ -53,6 +53,8 @@ public class Member {
     private String profilePic;
     @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
+    private String membershipId;
 
     private Boolean isMemberApproved = false;
 
@@ -211,6 +213,15 @@ public class Member {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getMembershipId() {
+        return membershipId;
+    }
+
+    public Member setMembershipId(String membershipId) {
+        this.membershipId = membershipId;
+        return this;
     }
 
     public Member setPassword(String password) {

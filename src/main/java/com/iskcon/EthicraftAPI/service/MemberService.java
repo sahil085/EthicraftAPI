@@ -2,6 +2,7 @@ package com.iskcon.EthicraftAPI.service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import org.modelmapper.ModelMapper;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.iskcon.EthicraftAPI.co.AssignRoleCO;
 import com.iskcon.EthicraftAPI.co.MemberShipFormCO;
 import com.iskcon.EthicraftAPI.constants.RoleConstant;
 import com.iskcon.EthicraftAPI.domain.College;
@@ -41,6 +43,8 @@ public class MemberService {
     @Autowired
     private CommonService commonService;
 
+    @Autowired
+    private UserAccountService userAccountService;
 
     public ResponseDTO createMember(MemberShipFormCO memberShipFormCO) {
         try {
@@ -51,7 +55,12 @@ public class MemberService {
                 member.setId(null);
                 member.setCollege(college);
                 member.setProfilePic("profile pic");
-                memberRepository.saveAndFlush(member);
+                Random random = new Random();
+
+                member.setMembershipId("ETHIC-" + random.nextInt(10000) + member.getMobileNumber().toString().substring(5));
+
+                member = memberRepository.saveAndFlush(member);
+                ;
                 User userInfo1 = userRepository.findByEmail(member.getEmail());
                 if (userInfo1 == null) {
                     User userInfo = new User();
@@ -59,7 +68,7 @@ public class MemberService {
                     userInfo.setPassword(new BCryptPasswordEncoder().encode(member.getPassword()));
                     userInfo.setUsername(member.getFirstName() + " " + member.getMiddleName() + member.getLastName());
                     Set<Role> roles = new HashSet<>();
-                    Role role = roleRepository.findByRole(RoleConstant.ROLE_USER);
+                    Role role = roleRepository.findByRole(RoleConstant.ROLE_MEMBER);
                     roles.add(role);
                     userInfo.setRoles(roles);
                     userRepository.saveAndFlush(userInfo);
@@ -100,21 +109,27 @@ public class MemberService {
         }
     }
 
-    public ResponseDTO approveOrDeclineMember(Long memberId,Boolean approveStatus) {
-        try{
+    public ResponseDTO approveOrDeclineMember(Long memberId, Boolean approveStatus) {
+        try {
             Member member = memberRepository.findById(memberId).orElse(null);
-            if(member !=null){
+            if (member != null) {
                 member.setMemberApproved(approveStatus);
                 memberRepository.saveAndFlush(member);
-                if(approveStatus){
+                if (approveStatus) {
+                    AssignRoleCO assignRoleCO = new AssignRoleCO();
+                    assignRoleCO.setColleges(null);
+                    assignRoleCO.setRole(RoleConstant.ROLE_MEMBER);
+                    assignRoleCO.setUsername(member.getEmail());
+                    userAccountService.assignRoleToUser(assignRoleCO);
                     return ResponseDTO.sendSuccessmessage("User approved as member successfully");
-                }else {
+                } else {
+
                     return ResponseDTO.sendSuccessmessage("User is no longer a member of ethiccraft family");
                 }
-            }else {
+            } else {
                 return ResponseDTO.sendErrorsmessage("User not found");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Internal server error");
         }

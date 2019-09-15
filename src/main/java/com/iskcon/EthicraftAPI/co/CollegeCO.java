@@ -1,27 +1,29 @@
 package com.iskcon.EthicraftAPI.co;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
+
+import java.util.List;
 
 public class CollegeCO {
 
 
     @NotNull
-    private String collegeName;
+    private String                   collegeName;
     @NotNull
-    private String collegeAbbreviation;
+    private String                   collegeAbbreviation;
     @NotNull
-    private String universityName;
+    private String                   universityName;
     @NotNull
-    private String address;
+    private String                   address;
     @NotNull
-    private String city;
+    private String                   city;
     @NotNull
-    private String state;
-    private String comments;
-    private String faculty;
-    private String referencePersonName;
-    private Long referencePersonContact;
+    private String                   state;
+    private String                   comments;
+    @NotNull
+    private String                   faculty;
+    @NotNull
+    private List<CollegeReferenceCO> referenceList;
 
     public String getCollegeName() {
         return collegeName;
@@ -87,19 +89,13 @@ public class CollegeCO {
         this.faculty = faculty;
     }
 
-    public String getReferencePersonName() {
-        return referencePersonName;
+    public List<CollegeReferenceCO> getReferenceList() {
+        return referenceList;
     }
 
-    public void setReferencePersonName(String referencePersonName) {
-        this.referencePersonName = referencePersonName;
+    public CollegeCO setReferenceList(List<CollegeReferenceCO> referenceList) {
+        this.referenceList = referenceList;
+        return this;
     }
 
-    public Long getReferencePersonContact() {
-        return referencePersonContact;
-    }
-
-    public void setReferencePersonContact(Long referencePersonContact) {
-        this.referencePersonContact = referencePersonContact;
-    }
 }

@@ -1,6 +1,5 @@
 package com.iskcon.EthicraftAPI.service;
 
-import java.text.CollationElementIterator;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -62,26 +61,20 @@ public class CollegeService {
         ModelMapper modelMapper = new ModelMapper();
         College college = collegeRepository.findById(id).orElse(null);
         if (college != null) {
-            return modelMapper.map(college, new TypeToken<CollegeDTO>() {
-            }.getType());
+            return modelMapper.map(college, CollegeDTO.class);
         }
         return null;
     }
 
     public List<CollegeDTO> findAllActiveCollege() {
-//        mailerService.prepareAndSend("vermasahil.269@gmail.com","Hare Krishna","member/welcome");
-        sendGridMailService.sendEmailUsingSendGrid();
         ModelMapper modelMapper = new ModelMapper();
         List<College> collegeList = collegeRepository.findAllByIsActive(true);
         return modelMapper.map(collegeList, new TypeToken<List<CollegeDTO>>() {
         }.getType());
     }
 
-    public List<CollegeDTO> findAllColleges() {
-        ModelMapper modelMapper = new ModelMapper();
-        List<College> collegeList = collegeRepository.findAll();
-        return modelMapper.map(collegeList, new TypeToken<List<CollegeDTO>>() {
-        }.getType());
+    public List<College> findAllColleges() {
+        return collegeRepository.findAll();
     }
 
     public ResponseDTO updateCollege(Long collegeId, CollegeCO collegeCO) {
@@ -92,13 +85,11 @@ public class CollegeService {
             } else {
                 ModelMapper modelMapper = new ModelMapper();
                 updatedCollege = modelMapper.map(collegeCO, College.class);
-                if (isValid(updatedCollege)) {
-                    updatedCollege.setId(collegeId);
-                    collegeRepository.saveAndFlush(updatedCollege);
-                    return ResponseDTO.sendSuccessmessage("College updated successfully");
-                } else {
-                    return ResponseDTO.sendErrorsmessage("College Name must be unique");
-                }
+
+                updatedCollege.setId(collegeId);
+                collegeRepository.saveAndFlush(updatedCollege);
+                return ResponseDTO.sendSuccessmessage("College updated successfully");
+
             }
         } catch (Exception e) {
             e.printStackTrace();

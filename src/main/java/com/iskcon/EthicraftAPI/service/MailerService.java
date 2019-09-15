@@ -23,7 +23,7 @@ public class MailerService {
     @Autowired
     private JavaMailSender mailSender;
 
-    public void prepareAndSend(String recipient, String message, String templateName) {
+    public void prepareAndSend(String recipient, Object message, String templateName) {
 
         MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
@@ -31,12 +31,13 @@ public class MailerService {
             String content = build(templateName, message);
             messageHelper.setText(content, true);
             messageHelper.setTo(recipient);
+            mimeMessage.setSubject("Ethiccraft Club Membership Approved");
             messageHelper.setFrom(env.getProperty("email.default.from"));
         };
         sendEmail(messagePreparator);
     }
 
-    public String build(String templateName, String message) {
+    public String build(String templateName, Object message) {
         Context context = new Context();
         context.setVariable("message", message);
         return templateEngine.process(templateName, context);

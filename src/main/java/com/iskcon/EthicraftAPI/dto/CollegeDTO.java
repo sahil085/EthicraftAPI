@@ -1,5 +1,7 @@
 package com.iskcon.EthicraftAPI.dto;
 
+import java.util.List;
+
 public class CollegeDTO {
 
     private Long id;
@@ -12,8 +14,7 @@ public class CollegeDTO {
     private String state;
     private String comments;
     private String faculty;
-    private String referencePersonName;
-    private Long referencePersonContact;
+    private List<CollegeReferenceDTO> referenceList;
     private Boolean isActive;
 
     public Long getId() {
@@ -88,27 +89,20 @@ public class CollegeDTO {
         this.faculty = faculty;
     }
 
-    public String getReferencePersonName() {
-        return referencePersonName;
-    }
-
-    public void setReferencePersonName(String referencePersonName) {
-        this.referencePersonName = referencePersonName;
-    }
-
-    public Long getReferencePersonContact() {
-        return referencePersonContact;
-    }
-
-    public void setReferencePersonContact(Long referencePersonContact) {
-        this.referencePersonContact = referencePersonContact;
-    }
-
     public Boolean getActive() {
         return isActive;
     }
 
     public void setActive(Boolean active) {
         isActive = active;
+    }
+
+    public List<CollegeReferenceDTO> getReferenceList() {
+        return referenceList;
+    }
+
+    public CollegeDTO setReferenceList(List<CollegeReferenceDTO> referenceList) {
+        this.referenceList = referenceList;
+        return this;
     }
 }

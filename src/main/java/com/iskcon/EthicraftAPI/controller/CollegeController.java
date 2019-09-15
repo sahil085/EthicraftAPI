@@ -17,7 +17,7 @@ import com.iskcon.EthicraftAPI.service.CollegeService;
 @RestController
 @CrossOrigin
 @RequestMapping("/college")
-@PreAuthorize("hasAuthority('"+ RoleConstant.ROLE_ADMIN+"')")
+
 public class CollegeController {
 
 
@@ -28,6 +28,7 @@ public class CollegeController {
 
 
     @PostMapping("/register")
+    @PreAuthorize("hasAuthority('"+ RoleConstant.ROLE_ADMIN+"')")
     public ResponseDTO registerCollege( @RequestBody CollegeCO collegeCO){
         return collegeService.register(collegeCO);
     }
@@ -48,6 +49,7 @@ public class CollegeController {
     }
 
     @PutMapping("/{collegeId}")
+    @PreAuthorize("hasAuthority('"+ RoleConstant.ROLE_ADMIN+"')")
     public ResponseDTO updateCollegeInfo(@PathVariable("collegeId") Long collegeId, @RequestBody CollegeCO collegeCO) {
         return collegeService.updateCollege(collegeId, collegeCO);
     }

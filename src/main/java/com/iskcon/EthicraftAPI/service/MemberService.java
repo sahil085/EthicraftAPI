@@ -1,6 +1,7 @@
 package com.iskcon.EthicraftAPI.service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.modelmapper.ModelMapper;
@@ -20,6 +21,7 @@ import com.iskcon.EthicraftAPI.dto.ResponseDTO;
 import com.iskcon.EthicraftAPI.repository.MemberRepository;
 import com.iskcon.EthicraftAPI.repository.RoleRepository;
 import com.iskcon.EthicraftAPI.repository.UserRepository;
+import com.iskcon.EthicraftAPI.securityservices.CurrentUser;
 
 @Service
 public class MemberService {
@@ -28,7 +30,7 @@ public class MemberService {
     @Autowired
     private MemberRepository memberRepository;
     @Autowired
-    private CollegeService collegeService;
+    private CollegeService   collegeService;
 
     @Autowired
     private RoleRepository roleRepository;
@@ -40,9 +42,9 @@ public class MemberService {
     private CommonService commonService;
 
 
-    public ResponseDTO createMember(MemberShipFormCO memberShipFormCO){
-        try{
-            if (isUniqueEmail(memberShipFormCO.getEmail())){
+    public ResponseDTO createMember(MemberShipFormCO memberShipFormCO) {
+        try {
+            if (isUniqueEmail(memberShipFormCO.getEmail())) {
                 ModelMapper modelMapper = new ModelMapper();
                 Member member = modelMapper.map(memberShipFormCO, Member.class);
                 College college = collegeService.findByCollegeId(memberShipFormCO.getCollegeId());
@@ -51,7 +53,7 @@ public class MemberService {
                 member.setProfilePic("profile pic");
                 memberRepository.saveAndFlush(member);
                 User userInfo1 = userRepository.findByEmail(member.getEmail());
-                if(userInfo1==null){
+                if (userInfo1 == null) {
                     User userInfo = new User();
                     userInfo.setEmail(member.getEmail());
                     userInfo.setPassword(new BCryptPasswordEncoder().encode(member.getPassword()));
@@ -65,21 +67,58 @@ public class MemberService {
                     System.out.println(" ****  User Created  ****");
                 }
                 return ResponseDTO.sendSuccessmessage("Cadidate registered successfully");
-            }else {
-               return ResponseDTO.sendErrorsmessage("Email Id already exist");
+            } else {
+                return ResponseDTO.sendErrorsmessage("Email Id already exist");
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error(e.getMessage());
             throw new RuntimeException("Some error occured while registration");
         }
 
     }
 
-    private Boolean isUniqueEmail(String email){
+    private Boolean isUniqueEmail(String email) {
         return memberRepository.countByEmail(email) == 0;
     }
 
+    public List<Member> findAllPendingMembers(String currentRole) {
+        try {
+            switch (currentRole) {
+                case RoleConstant.ROLE_CA:
+                    User user = CurrentUser.getCurrentUser();
+                    Member member = memberRepository.findByEmail(user.getEmail());
+                    return memberRepository.findAllByIsMemberApprovedAndCollege(false, member.getCollege());
+                case RoleConstant.ROLE_ADMIN:
+                    return memberRepository.findAllByIsMemberApproved(false);
+                default:
+                    return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Internal server error");
+        }
+    }
+
+    public ResponseDTO approveOrDeclineMember(Long memberId,Boolean approveStatus) {
+        try{
+            Member member = memberRepository.findById(memberId).orElse(null);
+            if(member !=null){
+                member.setMemberApproved(approveStatus);
+                memberRepository.saveAndFlush(member);
+                if(approveStatus){
+                    return ResponseDTO.sendSuccessmessage("User approved as member successfully");
+                }else {
+                    return ResponseDTO.sendSuccessmessage("User is no longer a member of ethiccraft family");
+                }
+            }else {
+                return ResponseDTO.sendErrorsmessage("User not found");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new RuntimeException("Internal server error");
+        }
+    }
 
 
 }

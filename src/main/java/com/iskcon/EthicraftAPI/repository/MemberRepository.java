@@ -20,5 +20,8 @@ public interface MemberRepository extends JpaRepository<Member,Long> {
     Member findByEmail(String email);
 
     List<Member> findAllByIsMemberApprovedAndCollege(boolean isApproved, College college);
+
+    List<Member> findAllByCollege(College college);
+
     List<Member> findAllByIsMemberApproved(boolean isApproved);
 }

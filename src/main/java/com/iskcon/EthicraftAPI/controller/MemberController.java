@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.iskcon.EthicraftAPI.co.MemberShipFormCO;
+import com.iskcon.EthicraftAPI.co.QuickMembershipCO;
 import com.iskcon.EthicraftAPI.constants.RoleConstant;
 import com.iskcon.EthicraftAPI.domain.Member;
 import com.iskcon.EthicraftAPI.dto.ResponseDTO;
@@ -61,11 +62,20 @@ public class MemberController {
     public List<Member> findAllPendingMember(@PathVariable("currentRole") String currentRole) {
         return memberService.findAllPendingMembers(currentRole);
     }
+    @GetMapping("/findAll/{currentRole}")
+    public List<Member> findAll(@PathVariable("currentRole") String currentRole) {
+        return memberService.findAll(currentRole);
+    }
 
     @PutMapping("/approveOrDecline/{memberId}/{approveStatus}")
     public ResponseDTO approveMember(@Validated @NotNull @PathVariable("memberId") Long memberId,
                                      @Validated @NotNull @PathVariable("approveStatus") boolean approveStatus){
         return memberService.approveOrDeclineMember(memberId, approveStatus);
+    }
+
+    @PostMapping("/quick-register")
+    public ResponseDTO quickRegister(@Validated @RequestBody QuickMembershipCO quickMembershipCO){
+            return memberService.quickRegister(quickMembershipCO);
     }
 
 }

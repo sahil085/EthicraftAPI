@@ -12,6 +12,7 @@ import java.util.Date;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -89,8 +90,8 @@ public class BaseModel {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.isAuthenticated()) {
             try {
-                if(authentication.getPrincipal() instanceof User){
-                    User user = (User) authentication.getPrincipal();
+                if(authentication.getPrincipal() instanceof org.springframework.security.core.userdetails.User){
+                    org.springframework.security.core.userdetails.User user = (User) authentication.getPrincipal();
                     return user.getUsername();
                 }else{
                     return (String) authentication.getPrincipal();

@@ -1,15 +1,14 @@
 package com.iskcon.EthicraftAPI.co;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
 public class AddressCO {
 
-    @NotNull
+    @NotNull(message = "Address cannot be null")
     private String address;
-    @NotNull
+    @NotNull(message = "City cannot be null")
     private String city;
-    @NotNull
+    @NotNull(message = "State cannot be null")
     private String state;
 
     public String getAddress() {

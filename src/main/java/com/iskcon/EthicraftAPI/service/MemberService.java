@@ -14,7 +14,9 @@ import org.springframework.stereotype.Service;
 
 import com.iskcon.EthicraftAPI.co.AssignRoleCO;
 import com.iskcon.EthicraftAPI.co.MemberShipFormCO;
+import com.iskcon.EthicraftAPI.co.QuickMembershipCO;
 import com.iskcon.EthicraftAPI.constants.RoleConstant;
+import com.iskcon.EthicraftAPI.domain.Address;
 import com.iskcon.EthicraftAPI.domain.College;
 import com.iskcon.EthicraftAPI.domain.Member;
 import com.iskcon.EthicraftAPI.domain.Role;
@@ -87,6 +89,58 @@ public class MemberService {
 
     }
 
+    public ResponseDTO quickRegister(QuickMembershipCO quickMembershipCO) {
+        try {
+            if (isUniqueEmail(quickMembershipCO.getEmail())) {
+                ModelMapper modelMapper = new ModelMapper();
+                Member member = modelMapper.map(quickMembershipCO, Member.class);
+                Address address =modelMapper.map(quickMembershipCO.getAddressObject(), Address.class);
+                member.setPermanentAddress(address);
+                member.setPresentAddress(address);
+                member.setCourseName("Dummy");
+                member.setBatch("Dummy");
+                if(quickMembershipCO.getUnRegisteredCollege() != null){
+                    member.setUnRegisteredCollege(quickMembershipCO.getUnRegisteredCollege());
+
+                }else {
+                    College college = collegeService.findByCollegeId(quickMembershipCO.getCollege());
+                    member.setCollege(college);
+                }
+                member.setId(null);
+                member.setProfilePic("profile pic");
+                member.setPassword(member.getFirstName() + member.getMobileNumber().toString().substring(0,4));
+                Random random = new Random();
+
+                member.setMembershipId("ETHIC-" + random.nextInt(10000) + member.getMobileNumber().toString().substring(5));
+
+                member = memberRepository.saveAndFlush(member);
+                ;
+                User userInfo1 = userRepository.findByEmail(member.getEmail());
+                if (userInfo1 == null) {
+                    User userInfo = new User();
+                    userInfo.setEmail(member.getEmail());
+                    userInfo.setPassword(new BCryptPasswordEncoder().encode(member.getPassword()));
+                    userInfo.setUsername(member.getFirstName() + " " + member.getMiddleName() + member.getLastName());
+                    Set<Role> roles = new HashSet<>();
+                    Role role = roleRepository.findByRole(RoleConstant.ROLE_MEMBER);
+                    roles.add(role);
+                    userInfo.setRoles(roles);
+                    userRepository.saveAndFlush(userInfo);
+                    commonService.createUserRoleCollegeMapping(userInfo, role, null);
+                    System.out.println(" ****  User Created  ****");
+                }
+                return ResponseDTO.sendSuccessmessage("Registration done successfully");
+            } else {
+                return ResponseDTO.sendErrorsmessage("Email Id already exist");
+            }
+
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            throw new RuntimeException("Some error occured while registration");
+        }
+
+    }
+
     private Boolean isUniqueEmail(String email) {
         return memberRepository.countByEmail(email) == 0;
     }
@@ -100,6 +154,23 @@ public class MemberService {
                     return memberRepository.findAllByIsMemberApprovedAndCollege(false, member.getCollege());
                 case RoleConstant.ROLE_ADMIN:
                     return memberRepository.findAllByIsMemberApproved(false);
+                default:
+                    return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Internal server error");
+        }
+    }
+    public List<Member> findAll(String currentRole) {
+        try {
+            switch (currentRole) {
+                case RoleConstant.ROLE_CA:
+                    User user = CurrentUser.getCurrentUser();
+                    Member member = memberRepository.findByEmail(user.getEmail());
+                    return memberRepository.findAllByCollege(member.getCollege());
+                case RoleConstant.ROLE_ADMIN:
+                    return memberRepository.findAll();
                 default:
                     return null;
             }

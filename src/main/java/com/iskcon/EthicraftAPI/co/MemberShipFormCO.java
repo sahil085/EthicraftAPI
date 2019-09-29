@@ -6,34 +6,34 @@ import javax.validation.constraints.NotNull;
 public class MemberShipFormCO {
 
 
-    @NotNull
+    @NotNull(message = "First Name cannot be null")
     private String firstName;
     private String middleName;
-    @NotNull
+    @NotNull(message = "Last Name cannot be null")
     private String lastName;
-    @NotNull
+    @NotNull(message = "Gender cannot be null")
     private String gender;
-    @NotNull
+    @NotNull(message = "Mobile number cannot be null")
     private Long mobileNumber;
     private Long whatsappNumber ;
-    @NotNull
+    @NotNull(message = "Email id cannot be null")
     private String email;
-    @NotNull
+    @NotNull(message = "College cannot be null")
     private Long collegeId;
-    @NotNull
+    @NotNull(message = "Course cannot be null")
     private String courseName;
-    @NotNull
+    @NotNull(message = "Batch cannot be null")
     private String batch;
-    @NotNull
+    @NotNull(message = "Permanent Address cannot be null")
     private AddressCO permanentAddress;
-    @NotNull
+    @NotNull(message = "Present Address cannot be null")
     private AddressCO presentAddress;
     private String achievements;
     private String hobbies;
     private String skills;
     private String inspirationSource;
     private Boolean isAddressSame;
-    @NotNull
+    @NotNull(message = "Password cannot be null")
     private String password;
 
     public String getFirstName() {

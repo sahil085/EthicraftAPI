@@ -31,10 +31,11 @@ public class Member {
     private Long mobileNumber;
     @Column(unique = true)
     private Long whatsappNumber ;
-    @Column(nullable = true,unique = true)
+    @Column(nullable = false,unique = true)
     private String email;
     @OneToOne
     private College college;
+    private String unRegisteredCollege;
     @Column(nullable = false)
     private String courseName;
     @Column(nullable = false)
@@ -226,6 +227,15 @@ public class Member {
 
     public Member setPassword(String password) {
         this.password = password;
+        return this;
+    }
+
+    public String getUnRegisteredCollege() {
+        return unRegisteredCollege;
+    }
+
+    public Member setUnRegisteredCollege(String unRegisteredCollege) {
+        this.unRegisteredCollege = unRegisteredCollege;
         return this;
     }
 }

@@ -1,5 +1,6 @@
 package com.iskcon.EthicraftAPI.service;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
@@ -48,6 +49,9 @@ public class MemberService {
     @Autowired
     private UserAccountService userAccountService;
 
+    @Autowired
+    private MailerService mailerService;
+
     public ResponseDTO createMember(MemberShipFormCO memberShipFormCO) {
         try {
             if (isUniqueEmail(memberShipFormCO.getEmail())) {
@@ -70,7 +74,7 @@ public class MemberService {
                     userInfo.setPassword(new BCryptPasswordEncoder().encode(member.getPassword()));
                     userInfo.setUsername(member.getFirstName() + " " + member.getMiddleName() + member.getLastName());
                     Set<Role> roles = new HashSet<>();
-                    Role role = roleRepository.findByRole(RoleConstant.ROLE_MEMBER);
+                    Role role = roleRepository.findByRole(RoleConstant.ROLE_USER);
                     roles.add(role);
                     userInfo.setRoles(roles);
                     userRepository.saveAndFlush(userInfo);
@@ -122,7 +126,7 @@ public class MemberService {
                     userInfo.setPassword(new BCryptPasswordEncoder().encode(member.getPassword()));
                     userInfo.setUsername(member.getFirstName() + " " + member.getMiddleName() + member.getLastName());
                     Set<Role> roles = new HashSet<>();
-                    Role role = roleRepository.findByRole(RoleConstant.ROLE_MEMBER);
+                    Role role = roleRepository.findByRole(RoleConstant.ROLE_USER);
                     roles.add(role);
                     userInfo.setRoles(roles);
                     userRepository.saveAndFlush(userInfo);
@@ -192,6 +196,10 @@ public class MemberService {
                     assignRoleCO.setRole(RoleConstant.ROLE_MEMBER);
                     assignRoleCO.setUsername(member.getEmail());
                     userAccountService.assignRoleToUser(assignRoleCO);
+                    Object data = new HashMap<>();
+                    ((HashMap) data).put("username",member.getFirstName() + " " + member.getLastName());
+                    ((HashMap) data).put("membershipId",member.getMembershipId());
+                    mailerService.prepareAndSend(member.getEmail(),data,"member/welcome");
                     return ResponseDTO.sendSuccessmessage("User approved as member successfully");
                 } else {
 

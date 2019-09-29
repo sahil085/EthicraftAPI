@@ -39,7 +39,7 @@ public class MailerService {
 
     public String build(String templateName, Object message) {
         Context context = new Context();
-        context.setVariable("message", message);
+        context.setVariable("data", message);
         return templateEngine.process(templateName, context);
     }
 

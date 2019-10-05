@@ -1,0 +1,1277 @@
+[
+  {
+    "collegeName": "ABES Engineering College",
+    "collegeAbbreviation": "ABES EC",
+    "universityName": "AKTU",
+    "address": [
+      "Campus -1",
+      "19th KM Stone",
+      "NH 24",
+      "Ghaziabad",
+      "Uttar Pradesh 201009"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Shubham",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7701936823
+  },
+  {
+    "collegeName": "Ajay Kumar Garg Engineering College",
+    "collegeAbbreviation": "AKGEC",
+    "universityName": "AKTU",
+    "address": [
+      "27th KM Milestone",
+      "Delhi - Meerut Expy",
+      "Ghaziabad",
+      "Uttar Pradesh 201009"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Shivendra Shukla",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7905534237
+  },
+  {
+    "collegeName": "Ambedkar Institute of Technology ",
+    "collegeAbbreviation": "AIT",
+    "universityName": "Indraprastha University",
+    "address": [
+      "Patparganj Rd",
+      "Madhuban colony",
+      "Nirman Vihar",
+      "Shakarpur",
+      "New Delhi",
+      "Delhi 110092"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "",
+    "referenceDesignation": "",
+    "referenceContact": ""
+  },
+  {
+    "collegeName": "Apex Institute of Technology",
+    "collegeAbbreviation": "AIT",
+    "universityName": "IP University",
+    "address": "",
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "ASHISH THAKUR - M",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7870149354
+  },
+  {
+    "collegeName": "Aryabhatta College",
+    "collegeAbbreviation": "ABC",
+    "universityName": "University of Delhi",
+    "address": [
+      "Plot No 5",
+      "Benito Juarez Marg",
+      "South Campus",
+      "Anand Niketan",
+      "New Delhi",
+      "Delhi 110021"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Kashish",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7999066799
+  },
+  {
+    "collegeName": "Aurobindo College (E)",
+    "collegeAbbreviation": "AUROBINDO(E)",
+    "universityName": "University of Delhi",
+    "address": [
+      "Block B",
+      "Shivalik Colony",
+      "Malviya Nagar",
+      "New Delhi",
+      "Delhi 110017"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "",
+    "referenceDesignation": "",
+    "referenceContact": ""
+  },
+  {
+    "collegeName": "Aurobindo College (M)",
+    "collegeAbbreviation": "AUROBINDO(M)",
+    "universityName": "University of Delhi",
+    "address": [
+      "Block B",
+      "Shivalik Colony",
+      "Malviya Nagar",
+      "New Delhi",
+      "Delhi 110017"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Aryan besan",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7001552592
+  },
+  {
+    "collegeName": "Bennett University",
+    "collegeAbbreviation": "BENNET",
+    "universityName": "Bennett University",
+    "address": [
+      "Plot No 8-11",
+      "TechZone",
+      "Street 2",
+      "Greater Noida",
+      "Uttar Pradesh"
+    ],
+    "city": "GREATER NOIDA",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Shivam Bansal",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7889101486
+  },
+  {
+    "collegeName": "Bhai Parmanand Institute of Business Studies",
+    "collegeAbbreviation": "BPIBS",
+    "universityName": "Indraprastha University",
+    "address": [
+      "Opp. Madhuban Colony",
+      "Near Vikas Marg",
+      "Shakarpur",
+      "New Delhi",
+      "Delhi 110092"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "",
+    "referenceDesignation": "",
+    "referenceContact": ""
+  },
+  {
+    "collegeName": "Bhaskaracharya College",
+    "collegeAbbreviation": "BHC",
+    "universityName": "University of Delhi",
+    "address": [
+      "Pocket 2",
+      "Sector 2 Dwarka",
+      "Dwarka",
+      "New Delhi"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Vishal Yadav",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9711674993
+  },
+  {
+    "collegeName": "CPJ College of Law( IP)",
+    "collegeAbbreviation": "CPJ LAW",
+    "universityName": "Indraprastha University",
+    "address": "Plot No. OCF Sector A-8",
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Dvij Kant",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8800804610
+  },
+  {
+    "collegeName": "Daulat Ram College",
+    "collegeAbbreviation": "DRC",
+    "universityName": "University of Delhi",
+    "address": [
+      4,
+      "Patel Marg",
+      "Daulat Ram College",
+      "Maurice Nagar",
+      "Roop Nagar"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "shivika ",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7618458574
+  },
+  {
+    "collegeName": "Deen Dayal Upadhyaya College",
+    "collegeAbbreviation": "DUC",
+    "universityName": "University of Delhi",
+    "address": [
+      "Azad Hind Fauj Marg",
+      "Phase 1",
+      "Dwarka Sector-3",
+      "Dwarka",
+      "New Delhi",
+      "Delhi 110078"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Mridul Chansouriya",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9057589965
+  },
+  {
+    "collegeName": "Delhi Institute of Tool Engineering",
+    "collegeAbbreviation": "DITE",
+    "universityName": "Indraprastha University",
+    "address": [
+      "AG-18",
+      "Mudrika Marg",
+      "East Shalimar Bagh",
+      "Shalimar Bagh",
+      "New Delhi",
+      "Delhi 110052"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Sourabh Singh Pr",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9315355317
+  },
+  {
+    "collegeName": "Delhi Metropolitan Education Law college",
+    "collegeAbbreviation": "DME",
+    "universityName": "Indraprastha University",
+    "address": [
+      "B-12 Opposite IBM",
+      "Block B",
+      "Industrial Area",
+      "Sector 62"
+    ],
+    "city": "NOIDA",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Harsh Saxena",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8375818918
+  },
+  {
+    "collegeName": "Delhi Technical University",
+    "collegeAbbreviation": "DTU",
+    "universityName": "Delhi Technical University",
+    "address": [
+      "Shahbad Daulatpur",
+      "Main Bawana Road"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "",
+    "referenceDesignation": "",
+    "referenceContact": ""
+  },
+  {
+    "collegeName": "DPG Institute of Technology and Management",
+    "collegeAbbreviation": "DPGITM",
+    "universityName": "Maharshi Dayanand University ",
+    "address": [
+      "Near Hero Honda",
+      "Behind Marble Market",
+      "Sector 34",
+      "Gurugram",
+      "Haryana"
+    ],
+    "city": "GURUGRAM",
+    "state": "HARYANA",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Mohit",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8527437217
+  },
+  {
+    "collegeName": "Dr. Akhilesh Das Gupta Institute of Technology and Management",
+    "collegeAbbreviation": "ADGIT",
+    "universityName": "Indraprastha University",
+    "address": [
+      "FC-26",
+      "Panduk Shila Marg",
+      "Shastri Park",
+      "New Delhi",
+      "Delhi"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Naveen Kumar",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9773967824
+  },
+  {
+    "collegeName": "Dr. Bhim Rao Ambedkar College",
+    "collegeAbbreviation": "AMBEDKAR",
+    "universityName": "University of Delhi",
+    "address": [
+      "near metro station GOKULPURI",
+      "Kardam Puri Extension",
+      "Yamuna Vihar",
+      "Shahdara",
+      "Delhi",
+      110094
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Vishek",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7011460149
+  },
+  {
+    "collegeName": "Dyal Singh college(E)",
+    "collegeAbbreviation": "DSC",
+    "universityName": "University of Delhi",
+    "address": [
+      "Lodhi Rd",
+      "Pragati Vihar",
+      "New Delhi",
+      "Delhi 110003"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Pooja",
+    "referenceDesignation": "Student",
+    "referenceContact": 7678650944
+  },
+  {
+    "collegeName": "Dyal Singh college(M)",
+    "collegeAbbreviation": "DSC",
+    "universityName": "University of Delhi",
+    "address": [
+      "Lodhi Rd",
+      "Pragati Vihar",
+      "New Delhi",
+      "Delhi 110003"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Ashish Raj",
+    "referenceDesignation": "Student",
+    "referenceContact": 8298715969
+  },
+  {
+    "collegeName": "G B Pant Institute of Technology ",
+    "collegeAbbreviation": "GBPIT",
+    "universityName": "Indraprastha University",
+    "address": [
+      "Okhla Phase 3 Rd",
+      "Shyam Nagar",
+      "Okhla Industrial Area",
+      "New Delhi",
+      "Delhi 110020"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "ashish",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9958930288
+  },
+  {
+    "collegeName": "G.B PANT GOVT ENGINEERING COLLEGE",
+    "collegeAbbreviation": "GBPANT",
+    "universityName": "Indraprastha University",
+    "address": [
+      "Okhla Industrial Estate Phase 3 Rd",
+      "Okhla Phase III",
+      "Okhla Industrial Area",
+      "New Delhi",
+      "Delhi 110020"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "PRASHANT",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9716393809
+  },
+  {
+    "collegeName": "Ganeshi Lal Bajaj Institute of Technology and Management",
+    "collegeAbbreviation": "GLBITM",
+    "universityName": "AKTU",
+    "address": [
+      "Plot No.2",
+      "Knowledge Park III",
+      "Greater Noida",
+      "Uttar Pradesh 201306"
+    ],
+    "city": "GREATER NOIDA",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Aastha",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9213989569
+  },
+  {
+    "collegeName": "Govind Ballabh Pant University of Agriculture & Technology",
+    "collegeAbbreviation": "GBPUAT",
+    "universityName": "Pantnagar University",
+    "address": "Udham Singh Nagar",
+    "city": "UDHAM SINGH NAGAR",
+    "state": "UTTARAKHAND",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "OM Prakash",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9870674278
+  },
+  {
+    "collegeName": "Hansraj college",
+    "collegeAbbreviation": "HANSRAJ",
+    "universityName": "University of Delhi",
+    "address": [
+      "Mahatma Hans Raj Marg",
+      "Hansraj College",
+      "Malka Ganj",
+      "Delhi",
+      110007
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Kartik",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8700665620
+  },
+  {
+    "collegeName": "Hi-Tech Institute of Engineering & Technology",
+    "collegeAbbreviation": "HIET",
+    "universityName": "AKTU",
+    "address": [
+      "26th Km. Mile Stone\nDelhi-Hapur Bypass",
+      "NH-24",
+      "Gzb"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Aviral",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8377831734
+  },
+  {
+    "collegeName": "Ideal Institute of Technology",
+    "collegeAbbreviation": "IDEAL",
+    "universityName": "AKTU",
+    "address": [
+      "Ideal Knowledge Park",
+      "Near Gaur Homes",
+      "Govindpuram",
+      "Ghaziabad",
+      "Uttar Pradesh 201003"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Tushar",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7599318718
+  },
+  {
+    "collegeName": "IMS Ghaziabad ",
+    "collegeAbbreviation": "IMSEC",
+    "universityName": "AKTU",
+    "address": [
+      "National Highway 24",
+      "Near Dasna",
+      "Adhyatmik Nagar",
+      "Ghaziabad"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "",
+    "referenceDesignation": "",
+    "referenceContact": ""
+  },
+  {
+    "collegeName": "Indian Institute of Technology BHU",
+    "collegeAbbreviation": "IITBHU",
+    "universityName": "Indian Institute of Technology",
+    "address": "IIT Campus",
+    "city": "VARANASI",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Neeraj Alavelli",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9502139266
+  },
+  {
+    "collegeName": "Indian Institute of Technology Delhi",
+    "collegeAbbreviation": "IITD",
+    "universityName": "Indian Institute of Technology",
+    "address": [
+      "IIT Campus",
+      "Hauz Khas"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Gaurav",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8130994369
+  },
+  {
+    "collegeName": "Indian Institute of Technology Mandi",
+    "collegeAbbreviation": "IIT MANDI",
+    "universityName": "Indian Institute of Technology",
+    "address": [
+      "Parashar Road",
+      "Tehsil Sadar",
+      "Near Kataula",
+      "Kamand"
+    ],
+    "city": "MANDI",
+    "state": "HIMACHAL PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Gaurav Arora",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7503502823
+  },
+  {
+    "collegeName": "Indraprastha Engineering College",
+    "collegeAbbreviation": "IPEC",
+    "universityName": "AKTU",
+    "address": [
+      "Plot No 63",
+      "Site IV",
+      "Surya Nagar Flyover Road",
+      "Sahibabad Industrial Area",
+      "Sahibabad",
+      "Ghaziabad",
+      "Uttar Pradesh 201010"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Kanhaiya",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8920564055
+  },
+  {
+    "collegeName": "INMANTEC Institution",
+    "collegeAbbreviation": "INMANTEC",
+    "universityName": "",
+    "address": [
+      "NH-24 near Dasna Flyover",
+      "Udyog Kunj"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Ashish Kumar",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8840059581
+  },
+  {
+    "collegeName": [
+      "Institute of Chemical Technology",
+      "Mumbai"
+    ],
+    "collegeAbbreviation": "ICT",
+    "universityName": "University of Mumbai",
+    "address": [
+      "Nathalal Parekh Marg",
+      "Near Khalsa College",
+      "Matunga",
+      "Mumbai",
+      "Maharashtra 400019"
+    ],
+    "city": "MUMBAI",
+    "state": "MAHARASHTRA",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Karishma",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9098010583
+  },
+  {
+    "collegeName": "Institute of Technology Sciences",
+    "collegeAbbreviation": "ITS",
+    "universityName": "AKTU",
+    "address": [
+      "GT Road",
+      "Anand Industrial Estate",
+      "Mohan Nagar",
+      "Ghaziabad"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Shivam",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8882996522
+  },
+  {
+    "collegeName": [
+      "International Institute of Health Management Research",
+      ""
+    ],
+    "collegeAbbreviation": "IIHMR",
+    "universityName": "IIHMR University",
+    "address": [
+      "Plot no. 3",
+      "Sector 18A",
+      "Dwarka"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Samiksha Yadav",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9582684874
+  },
+  {
+    "collegeName": "International Institute of Mass Media\n\n",
+    "collegeAbbreviation": "IIMM",
+    "universityName": "Singhania University",
+    "address": [
+      "B-50",
+      "South Extension Part I",
+      "Block B",
+      "South Extension I"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Vivek Shukla",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9560625731
+  },
+  {
+    "collegeName": "IPEM Law College",
+    "collegeAbbreviation": "IPEMLC",
+    "universityName": "AKTU",
+    "address": [
+      "A-13/1",
+      "South Side G.T Road",
+      "Industrial Area",
+      "Ghaziabad",
+      "Uttar Pradesh 201010"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Akansha",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8178624635
+  },
+  {
+    "collegeName": [
+      "J.C. Bose University of Science and Technology",
+      "YMCA"
+    ],
+    "collegeAbbreviation": "YMCA",
+    "universityName": "YMCA University",
+    "address": [
+      6,
+      "Mathura Rd",
+      "Sector 6",
+      "Faridabad",
+      "Haryana 121006"
+    ],
+    "city": "FARIDABAD",
+    "state": "HARAYANA",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Chirag Goyal",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9811076788
+  },
+  {
+    "collegeName": "Jaipuria School of Business",
+    "collegeAbbreviation": "JSB",
+    "universityName": "Jaipuria University",
+    "address": [
+      "Shakti Khand - IV",
+      "Indirapuram",
+      "Ghaziabad",
+      "Uttar Pradesh 201012"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Shreya Garg",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7404721184
+  },
+  {
+    "collegeName": "Kirori mal college",
+    "collegeAbbreviation": "KMC",
+    "universityName": "University of Delhi",
+    "address": [
+      "Prof ND Kapoor Marg",
+      "Kirori Mal College",
+      "University Enclave",
+      "New Delhi",
+      "Delhi 110007"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Lalit Kishore",
+    "referenceDesignation": "Student",
+    "referenceContact": 8279839084
+  },
+  {
+    "collegeName": "Krishna Institute of Engineering Technology",
+    "collegeAbbreviation": "KIET",
+    "universityName": "AKTU",
+    "address": [
+      "Ghaziabad - Meerut Highway",
+      "NH-58",
+      "Ghaziabad",
+      "Uttar Pradesh 201206"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Daksh",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 6397446730
+  },
+  {
+    "collegeName": "Lal Bahadur Shastri Institute of Management",
+    "collegeAbbreviation": "LBSIM",
+    "universityName": "Indraprastha University",
+    "address": [
+      "11/07 Dwarka Sector 11",
+      "Near Metro Station",
+      "New Delhi",
+      "Delhi 110075"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Shubhendu Das",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8806399194
+  },
+  {
+    "collegeName": "Lalbhai Dalpatbhai College of Engineering",
+    "collegeAbbreviation": "LD ENGG",
+    "universityName": "Gujarat Technological University",
+    "address": [
+      120,
+      "Circular Road",
+      "University Area",
+      "Ahmedabad",
+      "Gujarat 380015"
+    ],
+    "city": "AHMEDABAD",
+    "state": "GUJARAT",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Umang Pandya",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8849771686
+  },
+  {
+    "collegeName": "LOVELY PROFESSIONAL UNIVERSITY",
+    "collegeAbbreviation": "LPU",
+    "universityName": "Lovely Professional University",
+    "address": "Jalandhar - Delhi G.T. Road",
+    "city": "CHANDIGARH",
+    "state": "PUNJAB",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "",
+    "referenceDesignation": "",
+    "referenceContact": ""
+  },
+  {
+    "collegeName": "Maharaja Surajmal Institute of Technology",
+    "collegeAbbreviation": "MSIT",
+    "universityName": "Indraprastha University",
+    "address": [
+      "C-4 MARKET",
+      "Janakpuri",
+      "New Delhi",
+      "Delhi 110058"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Rahul Janghu",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8130326501
+  },
+  {
+    "collegeName": "Maharaja Surajmal Institute of Technology",
+    "collegeAbbreviation": "MSI",
+    "universityName": "Indraprastha University",
+    "address": [
+      "Wz- 1260",
+      "Rani Bagh",
+      "Pitam Pura",
+      "Delhi"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Ram",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7289936904
+  },
+  {
+    "collegeName": "Maulana Azad College",
+    "collegeAbbreviation": "MAC",
+    "universityName": "University of Delhi",
+    "address": [
+      2,
+      "Bahadur Shah Zafar Marg",
+      "Maulana Azad Medical College Campus",
+      "Balmiki Basti",
+      "New Delhi",
+      "Delhi 110002"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Sashinand",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8826517613
+  },
+  {
+    "collegeName": "Nalanda University",
+    "collegeAbbreviation": "NU",
+    "universityName": "Nalanda University",
+    "address": [
+      "Rajgir",
+      "Bihar 803116"
+    ],
+    "city": "RAJGIR",
+    "state": "BIHAR",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Vikram Sharma",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 6200968095
+  },
+  {
+    "collegeName": "National Institute of Food Technology Entrepreneurship and Management",
+    "collegeAbbreviation": "NIFTEM",
+    "universityName": "National Institute of Food Technology Entrepreneurship and Management",
+    "address": [
+      "Plot No. 97",
+      "Sector 56",
+      "HSIIDC",
+      "Industrial Estate"
+    ],
+    "city": "SONIPAT",
+    "state": "HARYANA",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Vishaal (Tamil Nadu)",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8199068647
+  },
+  {
+    "collegeName": "National Institute of Technology Delhi",
+    "collegeAbbreviation": "NIT DELHI",
+    "universityName": "National Institute of Technology",
+    "address": [
+      "A-7",
+      "Institutional Area Near Satyawadi Raja Harish Chandra Hospital",
+      "New Delhi",
+      "Delhi 110040"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Aman Swaraj",
+    "referenceDesignation": "Student",
+    "referenceContact": 7217842795
+  },
+  {
+    "collegeName": "National Institute of Technology Patna",
+    "collegeAbbreviation": "NIT PATNA",
+    "universityName": "National Institute of Technology",
+    "address": [
+      "University Campus",
+      "National Institute of Technology",
+      "Patna",
+      "Bihar 800005"
+    ],
+    "city": "PATNA",
+    "state": "BIHAR",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Rakesh",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7870416509
+  },
+  {
+    "collegeName": "NITRA Technical Campus",
+    "collegeAbbreviation": "NITRA",
+    "universityName": "AKTU",
+    "address": [
+      "Block M",
+      "NITRA",
+      "Sector 23",
+      "Sanjay Nagar",
+      "Ghaziabad",
+      "Uttar Pradesh 201002"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Jatin Sharma",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9958473800
+  },
+  {
+    "collegeName": "Panjab University",
+    "collegeAbbreviation": "PU",
+    "universityName": "Panjab University",
+    "address": [
+      "Sector 14",
+      "Chandigarh",
+      160014
+    ],
+    "city": "CHANDIGARH",
+    "state": "CHANDIGARH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Abhishek Malik",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9716646879
+  },
+  {
+    "collegeName": "Pannalal Girdharlal Dayanand Anglo Vedic College (E)",
+    "collegeAbbreviation": "PGDAV(E)",
+    "universityName": "University of Delhi",
+    "address": [
+      "Ring Rd",
+      "Nehru Nagar",
+      "Lajpat Nagar",
+      "New Delhi",
+      "Delhi 110065"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Kaushil kumar bhardwaj",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7292045474
+  },
+  {
+    "collegeName": "Pannalal Girdharlal Dayanand Anglo Vedic College (M)",
+    "collegeAbbreviation": "PGDAV(M)",
+    "universityName": "University of Delhi",
+    "address": [
+      "Ring Rd",
+      "Nehru Nagar",
+      "Lajpat Nagar",
+      "New Delhi",
+      "Delhi 110065"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Arpit",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9685575246
+  },
+  {
+    "collegeName": "Raj Kumar Goel Institute of Technology",
+    "collegeAbbreviation": "RKGIT",
+    "universityName": "AKTU",
+    "address": [
+      "5KM STONE",
+      "Delhi - Meerut Expy",
+      "Ghaziabad",
+      "Uttar Pradesh 201003"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Vaibhav",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 7017647908
+  },
+  {
+    "collegeName": "Ramjas College",
+    "collegeAbbreviation": "RAMJAS",
+    "universityName": "University of Delhi",
+    "address": [
+      "University Enclave",
+      "New Delhi",
+      "Delhi 110007"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Ankit Raj",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8527991115
+  },
+  {
+    "collegeName": "Rudrapur Institute of Technology",
+    "collegeAbbreviation": "RIT",
+    "universityName": "Kumaun University",
+    "address": [
+      "Kashipur Road",
+      "Bhagwanpur",
+      "Danpur"
+    ],
+    "city": "RUDRAPUR",
+    "state": "UTTARAKHAND",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Yash Kalra (new)",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9927519533
+  },
+  {
+    "collegeName": "Sam Hingginbottom University of Agriculture of Science and Technology",
+    "collegeAbbreviation": "SHUAST",
+    "universityName": "Sam Hingginbottom University of Agriculture of Science and Technology",
+    "address": [
+      "Rewa Road Old Bridge",
+      "near to Yamuna",
+      "Naini",
+      "Prayagraj",
+      "Uttar Pradesh 211007"
+    ],
+    "city": "ALLAHABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Pravesh Bhardwaj",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9810624780
+  },
+  {
+    "collegeName": "Satyavati College(M)",
+    "collegeAbbreviation": "SC",
+    "universityName": "University of Delhi",
+    "address": [
+      "Phase 3",
+      "Sawan Park",
+      "Ashok Vihar",
+      "New Delhi",
+      "Delhi 110052"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Rishabh",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8076330241
+  },
+  {
+    "collegeName": "Shaheed Bhagat Singh college",
+    "collegeAbbreviation": "SBSC",
+    "universityName": "University of Delhi",
+    "address": [
+      "Mehrauli Road Near Union Bank Of India",
+      "Phase II",
+      "Sheikh Sarai",
+      "New Delhi",
+      "Delhi 110017"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Gautam Pahadiya",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9319101714
+  },
+  {
+    "collegeName": "Shyama Prasad Mukherjee College",
+    "collegeAbbreviation": "SPMC",
+    "universityName": "University of Delhi",
+    "address": [
+      "West Punjabi Bagh",
+      "Punjabi Bagh",
+      "Delhi",
+      110026
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Diksha Soni",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8860659031
+  },
+  {
+    "collegeName": "South Asian University",
+    "collegeAbbreviation": "SAU",
+    "universityName": "South Asian University",
+    "address": [
+      "Akbar Bhawan",
+      "Satya Marg",
+      "Chanakyapuri"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Bikash",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8847568254
+  },
+  {
+    "collegeName": "Sri Venkateswara College",
+    "collegeAbbreviation": "VENKY",
+    "universityName": "University of Delhi",
+    "address": [
+      "Dhaula Kuan Enclave I",
+      "Dhaula Kuan",
+      "New Delhi",
+      "Delhi 110021"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Sanjeev ",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9873628388
+  },
+  {
+    "collegeName": "Sunderdeep college",
+    "collegeAbbreviation": "SDC",
+    "universityName": "AKTU",
+    "address": [
+      "NH-24",
+      "Delhi-Hapur Road",
+      "Dasna Dehat",
+      "Ghaziabad",
+      "Uttar Pradesh 201015"
+    ],
+    "city": "GHAZIABAD",
+    "state": "UTTAR PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Deepshika",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 8810537548
+  },
+  {
+    "collegeName": "Vaishno College of Engineering",
+    "collegeAbbreviation": "VCE",
+    "universityName": "Himachal Pradesh Technical University",
+    "address": [
+      "Kandwal Damtal Rd",
+      "Thapkor",
+      "Himachal Pradesh 176403"
+    ],
+    "city": "KANGRA",
+    "state": "HIMACHAL PRADESH",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Manish Parihar",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 6005792548
+  },
+  {
+    "collegeName": "Vivekananda Institute of Professional Studies",
+    "collegeAbbreviation": "VIPS(IP)",
+    "universityName": "Indraprastha University",
+    "address": [
+      "Outer Ring Rd",
+      "AU Block",
+      "Ranikhet",
+      "Pitam Pura",
+      "New Delhi",
+      "Delhi 110034"
+    ],
+    "city": "NEW DELHI",
+    "state": "DELHI",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Deepanshu Kumar",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9911874961
+  },
+  {
+    "collegeName": [
+      "World Institute of Technology",
+      "WIT College"
+    ],
+    "collegeAbbreviation": "WIT",
+    "universityName": "Maharshi Dayanand University ",
+    "address": [
+      "8km milestone",
+      "Sohna Palwal Road",
+      "NH-71 B",
+      "Sohna",
+      "Haryana"
+    ],
+    "city": "SOHNA",
+    "state": "HARYANA",
+    "comments": "",
+    "faculty": "",
+    "referenceName": "Abhinav Tyagi",
+    "referenceDesignation": "STUDENT",
+    "referenceContact": 9899199151
+  }
+]

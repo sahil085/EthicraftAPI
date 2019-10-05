@@ -238,4 +238,33 @@ public class Member {
         this.unRegisteredCollege = unRegisteredCollege;
         return this;
     }
+
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", mobileNumber=" + mobileNumber +
+                ", whatsappNumber=" + whatsappNumber +
+                ", email='" + email + '\'' +
+                ", college=" + college +
+                ", unRegisteredCollege='" + unRegisteredCollege + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", batch='" + batch + '\'' +
+                ", permanentAddress=" + permanentAddress +
+                ", presentAddress=" + presentAddress +
+                ", achievements='" + achievements + '\'' +
+                ", hobbies='" + hobbies + '\'' +
+                ", skills='" + skills + '\'' +
+                ", inspirationSource='" + inspirationSource + '\'' +
+                ", profilePic='" + profilePic + '\'' +
+                ", password='" + password + '\'' +
+                ", membershipId='" + membershipId + '\'' +
+                ", isMemberApproved=" + isMemberApproved +
+                '}';
+    }
 }

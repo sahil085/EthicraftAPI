@@ -27,7 +27,7 @@ public class College extends BaseModel {
     private String                 collegeAbbreviation;
     @Column(nullable = false)
     private String                 universityName;
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false)
     private String                 address;
     @Column(nullable = false)
     private String                 city;
@@ -126,5 +126,22 @@ public class College extends BaseModel {
 
     public void setActive(Boolean active) {
         isActive = active;
+    }
+
+    @Override
+    public String toString() {
+        return "College{" +
+                "id=" + id +
+                ", collegeName='" + collegeName + '\'' +
+                ", collegeAbbreviation='" + collegeAbbreviation + '\'' +
+                ", universityName='" + universityName + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", comments='" + comments + '\'' +
+                ", faculty='" + faculty + '\'' +
+                ", referenceList=" + referenceList +
+                ", isActive=" + isActive +
+                '}';
     }
 }

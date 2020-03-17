@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.iskcon.EthicraftAPI.co.CollegeCO;
 import com.iskcon.EthicraftAPI.domain.College;
@@ -17,6 +18,7 @@ import com.iskcon.EthicraftAPI.dto.ResponseDTO;
 import com.iskcon.EthicraftAPI.repository.CollegeRepository;
 
 @Service
+@Transactional
 public class CollegeService {
 
     public static final Logger logger = LoggerFactory.getLogger(CollegeService.class);
@@ -55,6 +57,10 @@ public class CollegeService {
 
     public College findByCollegeId(Long id) {
         return collegeRepository.getOne(id);
+    }
+
+    public List<College> findByCollegeIdIn(List<Long> id) {
+        return collegeRepository.findAllByIdIn(id);
     }
 
     public CollegeDTO findCollegeById(Long id) {

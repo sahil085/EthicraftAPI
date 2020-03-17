@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.iskcon.EthicraftAPI.dto.UserRoleCollegeMappingDTO;
 
 @Entity
+@Table(name = "user_role_college_mapping")
 public class UserRoleCollegeMapping implements Serializable {
 
     @Id

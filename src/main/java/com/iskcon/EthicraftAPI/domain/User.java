@@ -15,7 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="User")
+@Table(name="user")
 @Embeddable
 public  class User extends BaseModel implements Serializable,UserDetails {
 

@@ -8,10 +8,13 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
@@ -30,7 +33,7 @@ import java.util.stream.Collectors;
  */
 @ControllerAdvice
 @RestController
-public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+public class GlobalExceptionHandler{
 
     @Autowired
     MessageSource messageSource;
@@ -47,18 +50,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 
 
-    @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(
-            MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        List<String> errorMessageList=ex.getBindingResult().getAllErrors().stream().filter(e->e instanceof FieldError).map((e)->{
-
-            FieldError fieldError = (FieldError) e;
-            return   messageSource.getMessage(fieldError, null);
-        }).collect(Collectors.toList());
-
-        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(),"Validation Failed.",errorMessageList.toString());
-        return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
-    }
 
     @ExceptionHandler({ ConstraintViolationException.class })
     public ResponseEntity<Object> handleConstraintViolation(
@@ -70,8 +61,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         }
 
         ExceptionResponse exceptionResponse =
-                new ExceptionResponse(new Date(),"", ex.getLocalizedMessage());
-        return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
+                new ExceptionResponse(new Date(),"", ex.getMessage());
+        return new ResponseEntity(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler({ MethodArgumentTypeMismatchException.class })
@@ -81,9 +72,25 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 ex.getName() + " should be of type " + ex.getRequiredType().getName();
 
         ExceptionResponse exceptionResponse =
-                new ExceptionResponse(new Date(),"", ex.getLocalizedMessage());
+                new ExceptionResponse(new Date(),"", ex.getMessage());
+        return new ResponseEntity(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<Object> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex, WebRequest webRequest){
+        String error = ex.getMessage();
+
+        ExceptionResponse exceptionResponse =
+                new ExceptionResponse(new Date(),"", ex.getMessage());
         return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler({UnAuthorizeException.class})
+    public ResponseEntity<Object> customUnAuthorizeException(UnAuthorizeException ex){
+        ExceptionResponse exceptionResponse =
+                new ExceptionResponse(new Date(), ex.getMessage(), "");
+        return new ResponseEntity(exceptionResponse, HttpStatus.UNAUTHORIZED);
+    }
+
 
 
 

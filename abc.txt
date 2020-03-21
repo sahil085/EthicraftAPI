@@ -1,0 +1,50 @@
+CA should only able to create Course only for his/her college.
+1.) Admin, CA is able to create ,update and schedule Course.
+    + Fields to create Course.
+        1. Course Name.*
+        2. Course Description. *
+        3. Course Duration. - start date and end date.*
+        4. Course Time Type - Weekly/Monthly/BiWeekly*
+        5. Course Thumbnail
+        6. Course to be performed in College - if admin is creating - can select multiple.
+        7. Course start time.* - for CA.
+        8. Course End time.* - for CA.
+        9. Is Approved - to be managed by backend.
+        10. College course status.
+        11. Individual class description.
+
+        NOTE: Course start time and end time is according to college, i.e each college has it's start and end time.
+
+        When CA creates Course then it will first go for approval to admin, after admin approves Course then, All the entries of Course in given duration
+        will be created.
+
+        When Admin creates Course then it will automatically approve and go to all CA to enter start and end time of class. When CA enters start and end time
+        then all entries will be created.
+
+        After Course is created then Email and SMS notification will send to all members of attached college if Course days left is <=4
+
+        Reminder mail will be sent 1 day before class.
+
+
+2.) Admin and CA can edit the Course details.
+    + Fields which can be updated.
+        1. Name.
+        2. Description.
+        3. Course Type.
+        4. Thumbnail.
+        5. College List - for admin.
+        6. Start time and End time - for CA.
+
+3.) Scheduled of all classes will be done by system according to user information on course creation.
+4.) there will be Soft delete for course by Admin and Active/Inactive check for individual college course - by CA and Admin both.
+
+5.) CA can postpone and cancel the class or can Mark the course as Inactive for his college.
+
+    1.) If CA postpone the class: There will list of upcoming scheduled classes of that course, On every individual class CA can take action of postpone.
+        + When CA clicks on postpone button then a modal should open which takes the reason to postpone, start and end time and date for the class of that day.
+        + After this EMail and SMS will trigger to all members of his college.
+
+    2.) If CA cancel the class: On right side of postpone button there should be cancel button.
+        + When CA clicks on this button then the "active" status of class of that day will be false.
+
+        + After this EMail and SMS will trigger to all members of his college.

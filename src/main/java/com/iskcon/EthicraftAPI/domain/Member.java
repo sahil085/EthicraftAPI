@@ -13,7 +13,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 @Entity
-@Table(name="Member")
+@Table(name="member")
 public class Member {
 
     @Id

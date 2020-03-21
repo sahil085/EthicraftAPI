@@ -6,25 +6,46 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.Date;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.iskcon.EthicraftAPI.domain.Member;
+import com.iskcon.EthicraftAPI.domain.Role;
+import com.iskcon.EthicraftAPI.domain.User;
+import com.iskcon.EthicraftAPI.exception.ExceptionResponse;
+import com.iskcon.EthicraftAPI.exception.UnAuthorizeException;
+import com.iskcon.EthicraftAPI.repository.RoleRepository;
+import com.iskcon.EthicraftAPI.repository.UserRepository;
+import com.iskcon.EthicraftAPI.service.MemberService;
+import com.iskcon.EthicraftAPI.service.ThreadRequestService;
+
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
+
     @Autowired
     private JwtUserDetailsService jwtUserDetailsService;
     @Autowired
     private JwtTokenUtil          jwtTokenUtil;
+    @Autowired
+    private RoleRepository roleRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
-            throws ServletException, IOException {
+            throws ServletException, IOException, UnAuthorizeException {
         final String requestTokenHeader = request.getHeader("Authorization");
         String username = null;
         String jwtToken = null;
@@ -58,6 +79,36 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
             }
         }
-        chain.doFilter(request, response);
+        try {
+            storeCurrentRequestProperties(request, username);
+            chain.doFilter(request, response);
+        }catch (UnAuthorizeException e){
+            ExceptionResponse exceptionResponse =
+                    new ExceptionResponse(new Date(), e.getMessage(), "");
+            response.setStatus(HttpStatus.UNAUTHORIZED.value());
+            response.getWriter().write(new ObjectMapper().writeValueAsString(exceptionResponse));
+        }
+    }
+
+    private void storeCurrentRequestProperties(HttpServletRequest request, String username) {
+
+        if (SecurityContextHolder.getContext().getAuthentication() != null) {
+            String role = request.getParameter("currentRole");
+            UserDetails userDetails = this.jwtUserDetailsService.loadUserByUsername(username);
+            GrantedAuthority grantedAuthority = userDetails.getAuthorities().stream().filter(auth -> {
+                return ((GrantedAuthority) auth).getAuthority().equals(role);
+            }).findFirst().orElse(null);
+            if(grantedAuthority != null){
+                Role currentRole = roleRepository.findByRole(role);
+                ThreadRequestService.setCurrentRole(currentRole);
+                User user = userRepository.findByEmail(username);
+                ThreadRequestService.setCurrentUser(user);
+            }else {
+                /* Throwing this exception here to globally manage Unauthorized Exception After this there is no need to check on each request whether the
+                current role is
+                assigned to user or not*/
+                throw new UnAuthorizeException("");
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.iskcon.EthicraftAPI.co.AssignRoleCO;
 import com.iskcon.EthicraftAPI.co.MemberShipFormCO;
@@ -29,6 +30,8 @@ import com.iskcon.EthicraftAPI.repository.UserRepository;
 import com.iskcon.EthicraftAPI.securityservices.CurrentUser;
 
 @Service
+@Transactional
+
 public class MemberService {
     public static final Logger logger = LoggerFactory.getLogger(MemberService.class);
 
@@ -212,6 +215,10 @@ public class MemberService {
             e.printStackTrace();
             throw new RuntimeException("Internal server error");
         }
+    }
+
+    public College findMemberCollege(String email){
+        return memberRepository.findByEmail(email).getCollege();
     }
 
 

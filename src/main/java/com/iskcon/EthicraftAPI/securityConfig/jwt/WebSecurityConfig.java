@@ -127,7 +127,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // We don't need CSRF for this example
         httpSecurity.csrf().disable()
                 // dont authenticate this particular request
-                .authorizeRequests().antMatchers("/util/populateCollegeData","/util/populateMemberData","/authenticate","/college/collegeDropDown", "/register","/member/quick" +
+                .authorizeRequests().antMatchers("/iyf/**","/util/populateCollegeData","/util/populateMemberData","/authenticate","/college/collegeDropDown",
+                "/register","/member/quick" +
                 "-register").permitAll().
                 // all other requests need to be authenticated
                         anyRequest().authenticated().and().

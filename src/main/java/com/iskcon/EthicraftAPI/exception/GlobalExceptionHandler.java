@@ -88,7 +88,7 @@ public class GlobalExceptionHandler{
     public ResponseEntity<Object> customUnAuthorizeException(UnAuthorizeException ex){
         ExceptionResponse exceptionResponse =
                 new ExceptionResponse(new Date(), ex.getMessage(), "");
-        return new ResponseEntity(exceptionResponse, HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity(exceptionResponse, HttpStatus.FORBIDDEN);
     }
 
 

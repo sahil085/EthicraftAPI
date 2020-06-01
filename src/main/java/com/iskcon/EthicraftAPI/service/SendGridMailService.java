@@ -1,19 +1,15 @@
 package com.iskcon.EthicraftAPI.service;
 
-import javax.annotation.Resource;
-
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
 
-import com.sendgrid.Content;
 import com.sendgrid.Email;
 import com.sendgrid.Mail;
 import com.sendgrid.Method;
+import com.sendgrid.Personalization;
 import com.sendgrid.Request;
 import com.sendgrid.Response;
 import com.sendgrid.SendGrid;
@@ -21,36 +17,48 @@ import com.sendgrid.SendGrid;
 @Service
 public class SendGridMailService {
 
+    public static void main(String[] args) throws IOException {
+        List<String> emailList = Arrays.asList(("sonalu0696@gmail.com,ykriti288@gmail.com,v.anurag099@gmail.com,pradhanajitesh420@gmail.com,spratibha581@gmail.com,hodve@galgotiacollege.edu,Kakerao55@gmail.com,nehayadav9140@gmail.com,brijeskme@gmail.com,surajsaxena9298@gmail.com,surajsaxena9298@gmail.com,parthbhati1999@gmail.com,praja.anshita@gmail.com,ritikachoudhary97601726@gmail.com,jrai1093@gmail.com,vishalguptavg9588@gmail.com,vishalguptavg9588@gmail.com,aashishagrawal2606@gmail.com,akankshag517@gmail.com,akankshag517@gmail.com,riyaror2@gmail.com,rhythemsharma7210@gmail.com,BTECHSHRUTI@GMAIL.COM,hkagnihotri99@gmail.com,BTECHSHRUTI@GMAIL.COM,BTECHSHRUTI@GMAIL.COM,ayushi.bansal8126@gmail.com,aggarwal0871@gmail.com,chiraggarg477@gmail.com,kritvisharma768@gmail.com,taliyakhan28@gmail.com,sanovarnigam12@gmail.com,gouravsharma3099@gmail.com,guptanamrata97@gmail.com,aashi2396@gmail.com,guptanamrata97@gmail.com,srishivangi3010@gmail.com,ankushkumar8700273865@gmail.com,kartikeygoyal1999@gmail.com,srishivangi3010@gmail.com,tyaginikhil422@gmail.com,shikharaghuvanshi07@gmail.com,shubhamj6899@gmail.com,Garimagoel2598@gmail.com,tanejaanmol96@gmail.com,yogendrabulandshahr@gmail.com,srastogi751@gmail.com,man.ansh.preet@gmail.com,coolutkarsh210@gmail.com,mayanksingh9451jadaun@gmail.com,imanjul.m03@gmail.com,akashkhare803@gmail.com,sanchitjain409@gmail.com,prekshagarg0365@gmail.com,rijul2310@gmail.com,harshitjha02@gmail.com,sheikhazeem141@gmail.com,shashwat.priyanshu@gmail.com,devanshaggarwal139@gmail.com,sakshisahu946@gmail.com,amishabaghel0526@gmail.com,brijendra1997@yahoo.com,goyalneha2525@gmail.com,shashankagrahari99@gmail.com,sakshisahu946@gmail.com,ankitabishen8260@gmail.com,lekhuverma9919@gmail.com,info.saxena1996@gmail.com,shweta.nagar312@gmail.com,ritesh21july@gmail.com,vermadeepali0896@gmail.com,nitingangwar71@gmail.com,akshaysrivastava0406@gmail.com,drshashikant.singh@galgotiacollege.edu,arpitgarg134@gmail.com,ahlawatkeshav@gmail.com,reetesh010@gmail.com,saumyasrivastava123yo@gmail.com,vishalsoarvind@gmail.com,princenagar257@gmail.com,amansingh0269@gmail.com,snehachaudhary1910@gmail.com,sanoriyavishal.97@gmail.com,indrapalkushawah@gmail.com,sarthakkushwaha.4@gmail.com,vivekpcs99@gmail.com,singhaltanushi27@gmail.com,rajprashant533@gmail.com,abmaurya123@gmail.com,nitinsingh6218@gmail.com,tanzilekram@gmail.com,agraharitoshu854204@gmail.com,brijesh.singh@galgotiacollege.edu,saxenaharsh0001@gmail.com,sharmasushma051@gmail.com,vaishnavi79302@gmail.com,Msurya9701@gmail.com,yyppkota@gmail.com,singh.mayank.mayank132@gmail.com,vishnusharma97@gmail.com,sahil.kansal@galgotiacollege.edu,tsaravcse@gmail.com,sandeepsaxena@galgotiacollege.edu,vivek.keshari1365@galgotiacollege.edu,ranj.kumar@galgotiacollege.edu,dineshprasad@galgotiacollege.edu,deepak.gambhir@galgotiacollege.edu,rajesh.narayandeo@galgotiacollege.edu,javed.miya@galgotiacollege.edu,gaurav.singh1983@galgotiacollege.edu,m.malik@galgotiacollege.edu,deepak.joshi@galgotiacollege.edu,drdeepak.kumar@galgotiascollege.edu,bh.singh@galgotiacollege.edu,rkmishra@galgotiacollege.edu,vivek.agrawal@galgotiacollege.edu,pratap.kumar@galgotiacollege.edu,pratap.kumar@galgotiacollege.edu,ravipathak80@gmail.com,Kajallovkushkeshari08@gmail.com,hanurkm@gmail.com,sharmashalu39960@gmail.com,ak26169499@gmail.com,pinkytyagiaim@gmail.com,Kshamasingh0082@gmail.com,anuradha.saha@galgotiacollege.edu,vsgupta1960@gmail.com,jaya.sinha@galgotiacollege.edu,singhaltanushi27@gmail.com,drshashikant.singh@galgotiacollege.edu,tanushree2k7@gmail.com,sonalu0696@gmail.com,durgadevi.p@galgotiacollege.edu,sakshisahu946@gmail.com,srastogi751@gmail.com,nikhilyadav50586@gmail.com,tanejaanmol96@gmail.com,sanoriyavishal.97@gmail.com,sheikhazeem141@gmail.com,aashishagrawal2606@gmail.com,arpitgarg134@gmail.com,renu.trivedi@galgotiacollege.edu,akashkhare803@gmail.com,Kshamasingh0082@gmail.com,ashu19246@gmail.com,Kshamasingh0082@gmail.com,shivendrasinghji1998@gmail.com,taliyakhan28@gmail.com,deepali.gupta@galgotiacollege.edu,princesharma0812@gmail.com,sachinreal@gmail.com,vaishnavibly7@gmail.com,shailendra03100@gmail.com,sia654singh@gmail.com,anshuman389chauhan@gmail.com,a7518422671@gmail.com,kirti.azby@gmail.com,ayush.18bme1185@abes.ac.in,aashish101899@gmail.com,shivom.19m143006@abes.ac.in,kirti.azby@gmail.com,vansh.18bcs1158@abes.ac.in,abhishekkumarsingh1017@gmail.com,shalini.19m143052@ebes.ac.in,ishitva.17bce1089@abes.ac.in,mohdasim2050@gmail.com,ashish.18bme1010@abes.ac.in,nidhish.18bme1025@abes.ac.in,vishalchaudhary1975@gmail.com,vandita.19m143036@abes.ac.in,ketanchakarvarty5@gmail.com,diwakarsharma0798@gmail.com,abhishek.17bme1023@abes.ac.in,ashutosh.19b131011@abes.ac.in,palak.17bec1007@abes.ac.in,nikhil.18bec1137@abes.ac.in,akeel.19b003010@abes.ac.in,umang.18bit1100@abes.ac.in,aayushtripathi864@gmail.com,harshit.19b311093@abes.ac.in,sanjay.parashar@abes.ac.in,rakhi.19m143040@abes.ac.in,vedang.19b131194@abes.ac.in,vinay.gautam@galgotiacollege.edu,shivani.18bec1141@abes.ac.in,jitendra.18bme1065@abes.ac.in,Shivam.18bce1036@abes.ac.in,ss5813418@gmail.com,rishabhjn65@gmail.com,sanyambansal07@gmail.com,shivani.17bcs1180@abes.ac.in,kshitiz.17bcs1094@abes.ac.in,kajal.17bit1003@abes.ac.in,anush674ka@gmail.com,adesh.18ben1121@abes.ac.in,swatantra.18bec1119@abes.ac.in,anmol.sachan20@gmail.com,divyansh.18bme1062@abes.ac.in,bulbul.18ben1068@abes.ac.in,bulbul.18ben1068@abes.ac.in,guptashruti491@abes.ac.in,alokkatyayan3@gmail.com,alokkatyayan3@gmail.com,shilpigarg9926@gmail.com,samyak.18bec1167@abes.ac.in,abdul.19b103013@abes.ac.in,vermaparul@akgec.ac.in,faisal.18bci1062@abes.ac.in,deepakguptamit@gmail.com,manojbdsm@gmail.com,gayatrisahu2008@gmail.com,rohanku9623@gmail.com,pdtdhangar21@gmail.com,parul.18mcs1004@abes.ac.in,surabhisahu8@gmail.com,surabhisahu8@gmail.com,divya.18bit1070@abes.ac.in,shriyanshrai09@gmail.com,kirti.azby@gmail.com,tusharmittal56@gmail.com,click2shatanshu@gmail.com,smishra6168@gmail.com,aakash.1923it1007@kiet.edu,keshav.1923en1147@kiet.edu,ak5821975@gmail.com,kush.1923ec1141@kiet.edu,mritunjay.1923csi1055@kiet.edu,prakharshrivastava00204@gmail.com,subhi.1820mba1102@kiet.edu,subhi.1820mba1102@kiet.edu,manu.tyagi3@gmail.com,yogesh.1721it1100@kiet.edu,utkarsh.1821mca1129@gmail.com,abhishek.1923bph1002@kiet.edu,pragatikalra@gmail.com,shikha.1820MBA1046@kiet.edu,vinod.pandey@kiet.edu,Rupesh.1822me1115@kiet.edu,naman.1821mca1002@kiet.edu,shubhamsharma8337@gmail.com,gk77435@gmail.com,akanksha4715@gmail.com,anant.1923co1009@kiet.edu,utkarshsinghal2k00@gmail.com,himanshi.1921mba1132@kiet.edu,ujjwal.1721cs1146@kiet.edu,pratusharma1999@gmail.com,mridul.1923ec1200@kiet.edu,neha.16bcs1099@abes.ac.in,suvileg@gmail.com,rajkumar273015@gmail.com,khushoo.arora1998@gmail.com,mukul.aggarwal@kiet.edu,pushakar.1621112@kiet.edu,ankush.1600015@kiet.edu,animesh.1600014@kiet.edu,abhishek.yadav.ksop@kiet.edu,muskan.1822en1083@kiet.edu,kaushikee13.10.1998@gmail.com,sg9997688903@gmail.com,torsa1822it1179@kiet.edu,sweetginnisharma@gmail.com,torsa.1822it1179@kiet.edu,sugandha0103@gmail.com,kaushikee13.10.1998@gmail.com,prateek.9017@yahoo.com,mohd.1923it1112@kiet.edu,bhuvirajeev@gmail.com,anshul.1822ei1003@kiet.edu,charu.1610044@kiet.edu,kaver.singh@kiet.edu,diksha.singh@kiet.edu,PRAYAGTOMAR97@REDIFFMAIL.COM,raju.e8954@cumail.in,11pssthakur@gmail.com,rajeev.sharma.warden@kiet.edu,nik.kr.chauhan001@gmail.com,rs4281785@gmail.com,navneet.tripathi@kiet.edu,shikha140891@gmail.com,mukund.khaitan67@gmail.com,1202shefali@gmail.com,shefali.1921mba1122@kiet.edu,vaishali.kikan@kiet.edu,anmolvarshney77@gmail.com,aakashpooniadps@gmail.com,rahulvrm490@gmail.com,vishwasgarg.ml@gmail.com,daman98deep@gmail.com,babita.tyagi@kiet.edu,pathakanay@gmail.com,rohankumar1025@gmail.com,nk157798@gmail.com,priyanka587garg@gmail.com,shailendra.1923cs1169@kiet.edu,shailendra.1923cs1169@kiet.edu,ishika.1923cs1008@kiet.edu,sanjeev.singh@kiet.edu,anuj.1721me1052@kiet.edu,nagesh.tiwari@kiet.edu,raj.1822ce1061@kiet.edu,pallav.1923cs1159@kiet.edu,ishikabargujar20939@gmail.com,ashishbaliyan01@gmail.com,shivangsharma2000@gmail.com,anuragt9654@gmail.com,manish.19m143015@abes.ac.in,umang.1631173@kiet.edu,preeti.chitkara@kiet.edu,deepak.1821mca1010@kiet.edu,sharma.anuj2613@gmail.com,sakshmika2000@gmail.com,princetyagii456@gmail.com,ashisharmagaur@gmail.com,suwali.1923it1010@kiet.edu,shobhit.1621150@kiet.edu,abhishek.1721en1006@kiet.edu,dipsitekeshav22@gmail.com,am7072714@gmail.com,aditya.tandon@krishnacollege.ac.in,punit.1721bph1055@kiet.edu,priyanka587garg@gmail.com,ershubra@gmail.com,aayush.aggarwal@krishnacollege.ac.in,harshjangid022@gmail.com,riteshsharma990033@gmail.com,gagan.thakral@krishnacollege.ac.in,alok.dubey@krishnacollege.ac.in,neha.raheja@krishnacollege.ac.in,utkarsh.1721ce1094@kiet.edu,suwali.1923it1010@kiet.edu,Aishvarya.chaudhary@krishnacollege.ac.in,sagar.1719mba1057@kiet.edu,bharat.1721en1040@kiet.edu,goyalneha2525@gmail.com,neelesh123verma@gmail.com,amanthakur2020123@gmail.com,omchaturvedi420@gmail.com,swati.goel@krishnacollege.ac.in,suresh.kumar@galgotiacollege.edu,riteshupadhyay140@gmail.com,prerna.sharma@krishnacollege.ac.in,neha.raheja@krishnacollege.ac.in,madhu.bhatt@krishnacollege.ac.in,harshug44@gmail.com,priyanka587garg@gmail.com,ravi.tomar@kiet.edu,pandit.divyanshu19@gmail.com,chhabragurneetmaneet@gmail.com,lucentinternationalaman@gmail.com,kanishkapathak1989@gmail.com,gurudutt23sep@gmail.com,p.dhingra91@gmail.com,poonamsondhi181971@gmail.com,vikhyat3179@gmail.com,sunitakarthikeyan@gmail.com,jessyjancy50@gmail.com,manchanda.garvit10@gmail.com,rashilamba21@yahoo.com,megha.sharma27as@gmail.com,garvitamehta526@gmail.com,prernakajania@gmail.com,soumyadhiman@gmail.com,mishravani2000@gmail.com,manojetvmktg@gmail.com,bakulsingh9@gmail.com,gurpreeetsingh6666@gmail.com,aayuayushi123@gmail.com,shubham19092000@gmail.com,umangbhatla27@gmail.com,amanmishralaw@gmail.com,manvinkaur@gmail.com,singhbakshinder56@gmail.com,singhsidak44@gmail.com,stutipandey9999@gmail.com,sharmaniha1999@gmail.com,shivagupta5290@gmail.com,rgec.rohit@gmail.com,stutipandey9999@gmail.com,jiyakalra19@gmail.com,dhajjuvvv@gmail.com,varunbhatnagar52@gmail.com,sakshidev1623@gmail.com,pathakudbhav@gmail.com,Vishal.bharti@dituniversity.edu.in,rupindercs6@gmail.com,manibatla24@gmail.com,rohangoel1998@yahoo.com,riya2000adhikari@gmail.com,varunbhatnagar52@gmail.com,sakshidev1623@gmail.com,swapnilmehrotra29@gmail.com,mukulsharma1123@gmail.com,adityashekhar.mail@gmail.com,anshulpahwa99@gmail.com,bhavyasharma22899@gmail.com,simrandhingra12@gmail.com,tulika5arora@gmail.com,Abhilashat004@gmail.com,simransuri2222@gmail.com,rishabhmathur1@gmail.com,priyankarai1978@gmail.com,priyanshib.gzb@gmail.com,raghavarora182@gmail.com,shivanshkapoor004@gmail.com,alankritsharma.94@gmail.com,grupali535@gmail.com,chughakansha16@gmail.com,ubbhardwaj7004@gmail.com,tushar.shukla0412@gmail.com,tushar.shukla0412@gmail.com,khalidmbtt@gmail.com,ritubansal25180@yahoo.com,vazz995@gmail.com,bhardwaj.sim1196@gmail.com,archanapandey1008@gmail.com,pramod.nath@kiet.edu,rathorerishabh01@gmail.com,stutipandey9999@gmail.com,guptafalguni1@gmail.com,officialescribir@gmail.com,manmeet228@gmail.com,simrandhingra12@gmail.com,maanaskamboj26@gmail.com,akshataggarwal84@gmail.com,singhpratapsuraj15@gmail.com,rastogipalak201@gmail.com,ayush.kumar.pandey2017@gmail.com,amantyagi7299@gmail.com,yashikakhandelwal907@gmail.com,rvmalik68@gmail.co,st071999@gmail.com,vaishnavix806@gmail.com,shallykumari01@gmail.com,motwani.gautam8@gmail.com,raghav6083@gmail.com,chaitali660@gmail.com,prernasoni0518@gmail.com,prernasoni0518@gmail.com,addy.kalra55@gmail.com,guptachanchal7007@gmail.com,vaishalig359@gmail.com,dwivedi.sneha@gmail.com,rishabhkumartdl01@gmail.com,megha_1904@rediffmail.com,riyagupta08222116@gmail.com,mayankkaushik342@gmail.com,arizmohd@iul.ac.in,ssmazhar@iul.ac.in,farhina@iul.ac.in").split(","));
 
-    @Resource
-    Environment environment;
-    @Autowired
-    private TemplateEngine templateEngine;
 
-    public String build(String templateName, Object data) {
-        Context context = new Context();
-        context.setVariable("data", data);
-        return templateEngine.process(templateName, context);
+//        System.out.println(emailList.size());
+        emailList.forEach(email -> {
+            try {
+
+                sendEmailUsingSendGrid(email);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+
     }
 
-    public void sendEmailUsingSendGrid(String subject, Object data, String templateName, String recipient){
-        Email from = new Email("app146048085@heroku.com");
-        Email to = new Email(recipient);
-        Content content = new Content("text/html", build(templateName, data));
-        Mail mail = new Mail(from, subject, to, content);
-
-        SendGrid sg = new SendGrid(environment.getProperty("send.grid.api.key"));
+    public static void sendEmailUsingSendGrid(String email) {
+        Email from = new Email("iskconyouthgzb@gmail.com");
+        Email to = new Email(email);
+        Email cc = new Email("vermasahil269@gmail.com");
+        Mail mail = new Mail();
+        mail.setSubject("INNER DEVELOPMENT THROUGH VEDIC WISDOM || ISKCON YOUTH FORUM");
+        mail.setFrom(from);
+        mail.setTemplateId("d-c29c503274f4499e9e683e61842bf71e");
+        Personalization personalization = new Personalization();
+        personalization.setSubject("INNER DEVELOPMENT THROUGH VEDIC WISDOM || ISKCON YOUTH FORUM");
+        personalization.addTo(to);
+        personalization.addBcc(cc);
+        mail.addPersonalization(personalization);
+//        ver - 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
+//        ver - d-c29c503274f4499e9e683e61842bf71e
+        SendGrid sg = new SendGrid("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");
         Request request = new Request();
         try {
-            request.method = Method.POST;
-            request.endpoint = "mail/send";
-            request.body = mail.build();
+            request.setMethod(Method.POST);
+            request.setEndpoint("mail/send");
+            request.setBody(mail.build());
             Response response = sg.api(request);
-            System.out.println(response.statusCode);
-            System.out.println(response.body);
-            System.out.println(response.headers);
+            System.out.println(" Email sent to :: " + email + " :::::: ");
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println("Not send Email  to :: " + email);
         }
     }
 }

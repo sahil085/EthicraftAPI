@@ -1,0 +1,33 @@
+Business impact stories:
+	 BELL-354: Add Allocation start date on allocation pop-up, Condition for allocation start date: Open Need Start Date <= Allocation Start Date < Need end date.
+
+	 BELL-356: Resigned employee Check For Employee Search.
+	 BELL-337: Create Scheduler to update TTN experience on bluebell.
+	 BELL-303: 1. By default, a check of Zero billable and non-billable allocation should be applied on employee search screen when doing allocation from open need
+2. Apply default filter for a title as well
+	 BELL-323: Competency lead access modification.
+	 BELL-324: Project Manager access modifications.
+	 BELL-325: Read only access modifications.
+
+
+
+	 BELL-343: Editing open request doesn't reflect change.
+
+	 	 	 BELL-350: Verify Employee Allocation Data, Some employees has allocation before there DOJ ex- neha jain.
+
+	 BELL-360: On updating the start date of the current allocation, update EStaffing date field also.
+	 	 BELL-357: Formatted reported creation (Aall reports will now being send or download are already formatted ).
+
+	 BELL-369: On future De-Allocation, staffing Start date is greater than End date (When any employee is Allocated for future allocation and De-Allocated before the start date, then in De-Allocation history Start Date becomes greater than the End Date).
+
+ BELL-341: Use Staffing date instead of staffing request date for Allocation/DeAllocation.
+
+376,345,302,365,313,336,327
+	 Refactor stories
+	  BELL-376: Add support to execute scheduled tasks via terminal.
+	  	 BELL-313: Enabling auto-retry mechanism to connect to queue.
+	  	 	 BELL-336: Add Mohit to BB developers list.
+	  	 	 	 BELL-327: Setup REST API testing framework.
+	 	 BELL-302: Replace java.util.Date with LocalDate/LocalDateTime.
+ BELL-365: Handle project end date NPE in Bluebell API.
+	 	 	 	 BELL-345: Cleanup old queues.
